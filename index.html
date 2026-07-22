@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PINSN — La confiance rendue visible</title>
+<meta name="description" content="PINSN rend la qualité réelle de votre travail visible grâce à un suivi continu de vos avis, de votre présence et de vos signaux locaux."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:       #f4f2ee;
+  --surf:     #faf9f6;
+  --surf2:    #f0ede7;
+  --panel:    #ffffff;
+  --text:     #111820;
+  --muted:    #64748b;
+  --line:     rgba(17,24,32,.09);
+  --brand:    #0e2140;
+  --brand2:   #1a3560;
+  --bsoft:    #d4bfb0;
+  --acc:      #2a5f65;
+  --accs:     rgba(42,95,101,.08);
+  --shadow:   0 20px 60px rgba(14,33,64,.07);
+  --shadow2:  0 8px 24px rgba(14,33,64,.05);
+  --r:        20px;
+  --rl:       28px;
+  --rxl:      36px;
+  --cont:     1180px;
+  --tx-xs:    clamp(.75rem,.72rem + .14vw,.84rem);
+  --tx-sm:    clamp(.88rem,.84rem + .18vw,.98rem);
+  --tx-base:  clamp(.98rem,.96rem + .18vw,1.06rem);
+  --tx-lg:    clamp(1.15rem,1.05rem + .55vw,1.48rem);
+  --tx-xl:    clamp(1.75rem,1.1rem + 2vw,3rem);
+  --tx-2xl:   clamp(2.6rem,1.5rem + 3.8vw,5.1rem);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  font-size:var(--tx-base);line-height:1.65;
+  color:var(--text);
+  background:
+    radial-gradient(ellipse at 0% 0%,rgba(212,191,176,.22),transparent 32%),
+    radial-gradient(ellipse at 100% 0%,rgba(14,33,64,.05),transparent 28%),
+    var(--bg);
+  min-height:100vh;
+}
+a{text-decoration:none;color:inherit}
+img,svg{display:block;max-width:100%}
+.w{max-width:var(--cont);margin:0 auto;padding:0 24px}
+
+/* ── NAV ── */
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(244,242,238,.92);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--line);
+}
+.nav-in{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px 0;gap:16px;
+}
+.brand{display:flex;align-items:center;gap:20px}
+
+/* Logo carré — P sérifé sur fond marine */
+.logo-box{
+  width:56px;height:56px;flex:0 0 56px;
+  background:#ffffff;
+  border:1.5px solid rgba(212,191,176,.3);
+  box-shadow:0 8px 24px rgba(14,33,64,.18);
+  display:grid;place-items:center;
+}
+.logo-box svg{width:40px;height:40px}
+
+.brand-word{
+  display:flex;align-items:baseline;gap:0;
+  color:var(--brand);font-weight:600;
+  letter-spacing:.28em;text-transform:uppercase;
+  font-size:clamp(.95rem,1vw,1.35rem);
+  white-space:nowrap;
+}
+.brand-word .ap{
+  color:var(--acc);letter-spacing:0;
+  font-weight:400;font-size:1.25em;line-height:.55;
+  margin:0 1px;font-family:'Cormorant Garamond',serif;
+}
+
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-size:var(--tx-sm);color:var(--muted);transition:color .18s}
+.nav-links a:hover{color:var(--brand)}
+.btn-nav{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:10px 22px;border-radius:999px;
+  background:var(--brand);color:#fff;
+  font-size:var(--tx-sm);font-weight:600;
+  box-shadow:0 10px 24px rgba(14,33,64,.16);
+  transition:background .18s,transform .15s;
+}
+.btn-nav:hover{background:var(--brand2);transform:translateY(-1px)}
+
+/* ── UTILITAIRES ── */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  border:1px solid rgba(42,95,101,.14);background:var(--accs);
+  color:var(--acc);padding:9px 16px;border-radius:999px;
+  font-size:var(--tx-xs);font-weight:600;letter-spacing:.05em;text-transform:uppercase;
+}
+.eyebrow::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--acc)}
+h1,h2,h3{color:var(--brand);line-height:1.06;font-family:'Cormorant Garamond',serif;font-weight:700;letter-spacing:-.03em}
+h1{font-size:var(--tx-2xl)}
+h2{font-size:var(--tx-xl)}
+h3{font-size:var(--tx-lg);font-family:'Inter',sans-serif;font-weight:600;letter-spacing:-.02em}
+.tag{font-size:var(--tx-xs);font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--acc);margin-bottom:12px;display:block}
+
+/* Boutons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:48px;padding:0 24px;border-radius:999px;
+  border:1px solid transparent;font-weight:600;font-size:var(--tx-sm);
+  transition:all .18s;cursor:pointer;font-family:'Inter',sans-serif;
+}
+.btn-p{background:var(--brand);color:#fff;box-shadow:0 12px 28px rgba(14,33,64,.14)}
+.btn-p:hover{background:var(--brand2);transform:translateY(-1px)}
+.btn-s{background:var(--panel);color:var(--brand);border-color:var(--line)}
+.btn-s:hover{border-color:rgba(17,24,32,.2)}
+
+/* Cartes base */
+.card{
+  background:rgba(255,255,255,.78);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(17,24,32,.07);
+  box-shadow:var(--shadow);
+}
+
+/* ── HERO ── */
+.hero{padding:28px 0 22px}
+.hero-subtitle {
+  font-size: 0.9rem;      /* plus petit que le texte normal */
+  font-style: italic;
+  color: #5c6470;         /* un ton plus doux que le H1 */
+  margin-top: 0.75rem;
+  max-width: 42rem;
+}
+.hero-shell{
+  display:grid;
+  grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr);
+  gap:20px;align-items:start;
+}
+.hero-main{
+  border-radius:var(--rxl);padding:clamp(28px,4vw,52px);
+  background:linear-gradient(160deg,rgba(255,255,255,.88) 0%,rgba(255,255,255,.66) 100%);
+}
+.hero-main h1{margin:18px 0 16px;max-width:11ch}
+.hero-copy{max-width:54ch;color:var(--muted);font-size:clamp(1rem,1rem + .2vw,1.14rem);margin-bottom:12px}
+.hero-note{color:var(--muted);font-size:var(--tx-sm);max-width:54ch;font-style:italic}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chip{
+  padding:8px 14px;border-radius:999px;
+  background:var(--panel);border:1px solid var(--line);
+  color:var(--muted);font-size:var(--tx-xs);
+}
+.hero-side{display:grid;gap:14px}
+.hcard{border-radius:var(--rl);padding:22px}
+.hcard h3{font-size:.96rem;margin-bottom:7px}
+.hcard p{color:var(--muted);font-size:var(--tx-sm)}
+
+/* Hero téléphone flottant */
+.hero-phone-wrap{display:flex;justify-content:center;align-items:center}
+.phone-float{animation:flot 6s ease-in-out infinite}
+@keyframes flot{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.phone{
+  width:230px;background:#0e1520;
+  border:1px solid rgba(255,255,255,.09);border-radius:32px;
+  padding:24px 13px 20px;
+  box-shadow:0 36px 72px rgba(14,33,64,.28),0 0 0 1px rgba(255,255,255,.04);
+}
+.phone-notch{width:56px;height:16px;background:#060a10;border-radius:8px;margin:0 auto 18px}
+.phone-screen{background:#0a1018;border-radius:16px;padding:12px;min-height:300px}
+.phone-hd{text-align:center;margin-bottom:12px}
+.phone-brand{
+  font-family:'Inter',sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:.22em;text-transform:uppercase;color:#5a8a78;
+  display:flex;align-items:baseline;gap:1px;justify-content:center;
+}
+.phone-brand .a{color:#5a8a78;font-size:13px;line-height:.55;font-weight:300}
+.phone-sub{font-size:8px;color:rgba(255,255,255,.22);margin-top:2px;letter-spacing:.04em}
+.notif{
+  background:#141e2a;border:1px solid rgba(255,255,255,.08);
+  border-radius:9px;padding:9px 10px;margin-bottom:5px;
+  opacity:0;transform:translateY(6px);
+  transition:opacity .42s ease,transform .42s ease;
+}
+.notif.on{opacity:1;transform:translateY(0)}
+.ntop{display:flex;align-items:center;gap:5px;margin-bottom:4px}
+.nd{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.nd-g{background:#5a8a78}.nd-o{background:#b07830}.nd-d{background:rgba(255,255,255,.18)}
+.napp{font-size:8px;font-weight:500;color:rgba(255,255,255,.28);text-transform:uppercase;letter-spacing:.06em}
+.ntime{font-size:8px;color:rgba(255,255,255,.2);margin-left:auto}
+.ntitle{font-size:10px;font-weight:500;color:rgba(255,255,255,.82);margin-bottom:2px}
+.nbody{font-size:9px;color:rgba(255,255,255,.42);line-height:1.45}
+.nact{font-size:9px;color:#5a8a78;font-weight:500;margin-top:4px}
+.scard{
+  background:#141e2a;border:1px solid rgba(255,255,255,.08);
+  border-radius:9px;padding:10px;margin-top:5px;
+  opacity:0;transform:translateY(6px);
+  transition:opacity .42s ease .1s,transform .42s ease .1s;
+}
+.scard.on{opacity:1;transform:translateY(0)}
+.stit{font-size:8px;color:rgba(255,255,255,.25);text-transform:uppercase;letter-spacing:.06em;margin-bottom:7px}
+.sr{display:flex;align-items:center;margin-bottom:4px}
+.sr:last-child{margin-bottom:0}
+.sn{font-size:8px;color:rgba(255,255,255,.38);width:56px;flex-shrink:0}
+.sbw{flex:1;height:2px;background:rgba(255,255,255,.05);border-radius:1px;margin:0 6px}
+.sb{height:2px;border-radius:1px;background:#5a8a78;transition:width 1s ease .35s}
+.sv{font-size:8px;font-weight:500;color:rgba(255,255,255,.65);width:18px;text-align:right}
+
+/* ── STATS BAND ── */
+.stats-band{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:var(--r);
+  overflow:hidden;margin:22px 0;
+}
+.stat-item{
+  background:var(--panel);padding:28px 24px;text-align:center;
+}
+.stat-n{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3vw,3.2rem);
+  font-weight:700;color:var(--brand);letter-spacing:-.04em;
+}
+.stat-n span{color:var(--acc)}
+.stat-l{font-size:var(--tx-xs);color:var(--muted);margin-top:4px}
+
+/* ── SECTIONS ── */
+section{padding:16px 0}
+.section-panel{
+  background:rgba(255,255,255,.78);backdrop-filter:blur(12px);
+  border:1px solid rgba(17,24,32,.07);box-shadow:var(--shadow);
+  border-radius:var(--rxl);padding:clamp(24px,3.5vw,44px);
+}
+.section-head{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  gap:20px;margin-bottom:22px;
+}
+.section-head p{max-width:52ch;color:var(--muted)}
+.grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+
+/* Steps */
+.step{
+  background:rgba(255,255,255,.92);border:1px solid var(--line);
+  border-radius:var(--rl);padding:24px;box-shadow:var(--shadow2);
+}
+.step-num{
+  width:34px;height:34px;border-radius:50%;
+  display:grid;place-items:center;
+  background:var(--accs);color:var(--acc);
+  font-weight:700;font-size:var(--tx-sm);
+  margin-bottom:14px;
+}
+.step h3{font-size:1rem;margin-bottom:8px}
+.step p{color:var(--muted);font-size:var(--tx-sm)}
+
+/* Histoire du nom */
+.histoire-layout{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:22px;
+}
+.histoire-main{
+  background:linear-gradient(160deg,rgba(14,33,64,.97),rgba(24,43,72,.93));
+  border-radius:var(--rxl);padding:clamp(28px,4vw,48px);color:#fff;
+}
+.histoire-main h2{color:#fff;margin:14px 0 16px}
+.histoire-main p{color:rgba(255,255,255,.62);font-size:var(--tx-sm);max-width:42ch}
+.levels{margin-top:24px;display:flex;flex-direction:column;gap:0}
+.lv{
+  display:flex;align-items:baseline;gap:16px;
+  padding:14px 0;border-bottom:1px solid rgba(255,255,255,.1);
+}
+.lv:last-child{border-bottom:none}
+.lv-w{
+  font-family:'Cormorant Garamond',serif;
+  font-size:19px;font-weight:700;font-style:italic;
+  color:var(--bsoft);min-width:96px;
+}
+.lv-d{font-size:var(--tx-sm);color:rgba(255,255,255,.55);line-height:1.6}
+.histoire-side{display:grid;gap:14px}
+.hside-card{
+  background:rgba(255,255,255,.9);border:1px solid var(--line);
+  border-radius:var(--rl);padding:24px;box-shadow:var(--shadow2);
+  flex:1;
+}
+.hside-card h3{font-size:.96rem;margin-bottom:8px}
+.hside-card p{color:var(--muted);font-size:var(--tx-sm);line-height:1.65}
+
+/* Conviction */
+.conviction-layout{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:20px;
+}
+.mantra-card{
+  background:linear-gradient(160deg,rgba(14,33,64,.97),rgba(24,43,72,.93));
+  border-radius:var(--rxl);padding:clamp(28px,4vw,48px);color:#fff;
+}
+.mantra-card h2{color:#fff;margin:14px 0 16px;font-style:italic}
+.mantra-card p{color:rgba(255,255,255,.6);font-size:var(--tx-sm);max-width:38ch;margin-bottom:24px}
+.mantra-box{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
+  border-radius:var(--r);padding:18px 22px;margin-top:auto;
+}
+.mantra-lbl{font-size:var(--tx-xs);color:var(--bsoft);text-transform:uppercase;letter-spacing:.09em;font-weight:600;margin-bottom:8px}
+.mantra-t{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;color:#fff}
+.principes{display:flex;flex-direction:column}
+.pr{
+  background:rgba(255,255,255,.9);border:1px solid var(--line);
+  border-radius:var(--r);padding:18px 20px;margin-bottom:10px;
+  box-shadow:var(--shadow2);
+}
+.pr:last-child{margin-bottom:0}
+.pr-n{font-size:var(--tx-xs);font-weight:600;letter-spacing:.09em;color:var(--acc);text-transform:uppercase;margin-bottom:5px}
+.pr-t{font-size:.95rem;font-weight:600;color:var(--brand);margin-bottom:3px}
+.pr-d{font-size:var(--tx-sm);color:var(--muted);line-height:1.6}
+
+/* Ce que ça change */
+.feature{
+  background:rgba(255,255,255,.9);border:1px solid var(--line);
+  border-radius:var(--rl);padding:24px;box-shadow:var(--shadow2);
+}
+.feature-dot{
+  width:32px;height:32px;border-radius:50%;
+  background:var(--accs);color:var(--acc);
+  display:grid;place-items:center;
+  font-weight:700;font-size:var(--tx-sm);
+  margin-bottom:14px;
+}
+.feature h3{font-size:1rem;margin-bottom:8px}
+.feature p{color:var(--muted);font-size:var(--tx-sm)}
+
+/* Pas un… */
+.not-layout{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:18px;
+}
+.not-quote{
+  background:linear-gradient(160deg,rgba(14,33,64,.97),rgba(24,43,72,.93));
+  border-radius:var(--rxl);padding:clamp(28px,4vw,48px);color:#fff;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.not-quote h2{color:#fff;margin-bottom:16px;font-style:italic}
+.not-quote p{color:rgba(255,255,255,.62);font-size:var(--tx-sm);max-width:34ch;margin-bottom:18px}
+.not-quote strong{color:var(--bsoft);font-weight:500;font-size:var(--tx-sm)}
+.not-stack{display:flex;flex-direction:column;gap:12px}
+.not-card{
+  background:rgba(255,255,255,.9);border:1px solid var(--line);
+  border-radius:var(--rl);padding:22px;box-shadow:var(--shadow2);flex:1;
+}
+.not-card h3{font-size:.96rem;margin-bottom:7px}
+.not-card p{color:var(--muted);font-size:var(--tx-sm)}
+
+/* Tarifs */
+.plans-grid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+}
+.plan{
+  background:rgba(255,255,255,.9);border:1px solid var(--line);
+  border-radius:var(--rxl);padding:clamp(24px,3vw,36px);
+  box-shadow:var(--shadow2);
+  transition:transform .18s,box-shadow .18s;
+}
+.plan:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.plan.feat{
+  background:linear-gradient(160deg,rgba(14,33,64,.97),rgba(24,43,72,.93));
+  border-color:transparent;transform:scale(1.03);
+  box-shadow:0 24px 60px rgba(14,33,64,.22);
+}
+.plan.feat:hover{transform:scale(1.03) translateY(-3px)}
+.pbadge{
+  font-size:var(--tx-xs);font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:4px 12px;border-radius:999px;display:inline-block;margin-bottom:18px;
+}
+.pb-d{background:var(--surf2);color:var(--muted)}
+.pb-a{background:var(--accs);color:var(--acc)}
+.pb-w{background:rgba(255,255,255,.12);color:rgba(255,255,255,.7)}
+.plan-price{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,3vw,3.8rem);
+  font-weight:700;letter-spacing:-.04em;color:var(--brand);margin-bottom:3px;
+}
+.plan.feat .plan-price{color:#fff}
+.plan-period{font-size:var(--tx-xs);color:var(--muted);margin-bottom:22px}
+.plan.feat .plan-period{color:rgba(255,255,255,.5)}
+.plan-feats{list-style:none;margin-bottom:26px}
+.plan-feats li{
+  font-size:var(--tx-sm);color:var(--muted);
+  padding:8px 0;border-bottom:1px solid var(--line);
+  display:flex;align-items:center;gap:9px;
+}
+.plan.feat .plan-feats li{color:rgba(255,255,255,.72);border-color:rgba(255,255,255,.1)}
+.plan-feats li:last-child{border-bottom:none}
+.plan-feats li::before{
+  content:'';width:4px;height:4px;border-radius:50%;
+  background:var(--acc);flex-shrink:0;
+}
+.plan.feat .plan-feats li::before{background:var(--bsoft)}
+.plan-feats li.off{color:var(--line)}.plan-feats li.off::before{background:var(--line)}
+.plan.feat .plan-feats li.off{color:rgba(255,255,255,.2)}.plan.feat .plan-feats li.off::before{background:rgba(255,255,255,.2)}
+.pbtn{
+  width:100%;padding:13px;border-radius:999px;font-size:var(--tx-sm);
+  font-weight:600;cursor:pointer;border:none;font-family:'Inter',sans-serif;
+  text-align:center;text-decoration:none;display:block;transition:all .18s;
+}
+.pbtn-o{background:var(--surf2);color:var(--brand);border:1px solid var(--line)}
+.pbtn-o:hover{background:var(--surf)}
+.pbtn-f{background:var(--brand);color:#fff;box-shadow:0 10px 24px rgba(14,33,64,.2)}
+.pbtn-f:hover{background:var(--brand2)}
+.pbtn-w{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.18)}
+.pbtn-w:hover{background:rgba(255,255,255,.18)}
+
+/* FAQ */
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.faq-item{
+  background:rgba(255,255,255,.9);border:1px solid var(--line);
+  border-radius:var(--rl);padding:20px 22px;
+  box-shadow:var(--shadow2);cursor:pointer;
+  transition:border-color .18s;
+}
+.faq-item:hover{border-color:rgba(17,24,32,.16)}
+.faq-q{font-size:.95rem;font-weight:600;color:var(--brand);display:flex;justify-content:space-between;align-items:center;gap:10px}
+.faq-ic{color:var(--acc);font-size:1.3rem;transition:transform .2s;flex-shrink:0}
+.faq-a{font-size:var(--tx-sm);color:var(--muted);margin-top:10px;display:none;line-height:1.65}
+.faq-item.open .faq-ic{transform:rotate(45deg)}
+.faq-item.open .faq-a{display:block}
+
+/* Formulaire CTA */
+.cta-panel{
+  background:linear-gradient(160deg,rgba(14,33,64,.97),rgba(24,43,72,.93));
+  border-radius:var(--rxl);padding:clamp(32px,5vw,56px);
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;
+}
+.cta-left h2{color:#fff;margin:14px 0 14px;font-style:italic}
+.cta-left p{color:rgba(255,255,255,.58);font-size:var(--tx-sm);max-width:38ch}
+.form{display:flex;flex-direction:column;gap:10px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fg{display:flex;flex-direction:column;gap:4px}
+.fg label{font-size:var(--tx-xs);color:rgba(255,255,255,.45);font-weight:500}
+.fg input,.fg select{
+  padding:12px 15px;
+  background:rgba(255,255,255,.08);color:#fff;
+  border:1px solid rgba(255,255,255,.14);border-radius:var(--r);
+  font-size:var(--tx-sm);font-family:'Inter',sans-serif;
+  outline:none;transition:border-color .18s;-webkit-appearance:none;
+}
+.fg input::placeholder{color:rgba(255,255,255,.3)}
+.fg input:focus,.fg select:focus{border-color:rgba(90,138,120,.5)}
+.fg select option{background:#111820;color:#fff}
+.fsub{
+  margin-top:4px;padding:14px;
+  background:#fff;color:var(--brand);
+  font-size:var(--tx-sm);font-weight:700;border:none;border-radius:999px;
+  cursor:pointer;font-family:'Inter',sans-serif;
+  transition:opacity .18s,transform .15s;
+}
+.fsub:hover{opacity:.9;transform:translateY(-1px)}
+.fnote{text-align:center;font-size:var(--tx-xs);color:rgba(255,255,255,.3);margin-top:8px}
+.fsuc{display:none;padding:40px 0;text-align:center}
+.fsuc-ic{
+  width:52px;height:52px;border-radius:50%;
+  background:rgba(90,138,120,.2);color:#5a8a78;
+  font-size:20px;display:flex;align-items:center;justify-content:center;
+  margin:0 auto 16px;border:1px solid rgba(90,138,120,.35);
+}
+.fsuc h3{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;color:#fff;margin-bottom:8px}
+.fsuc p{font-size:var(--tx-sm);color:rgba(255,255,255,.55)}
+
+/* ── FOOTER ── */
+footer{padding:32px 0 44px}
+.foot-in{
+  border-top:1px solid var(--line);padding-top:20px;
+  display:flex;justify-content:space-between;align-items:center;
+  gap:16px;flex-wrap:wrap;
+}
+.foot-logo{display:flex;align-items:center;gap:14px}
+.foot-word{
+  font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--brand);font-size:.92rem;
+  display:flex;align-items:baseline;
+}
+.foot-word .a{color:var(--acc);font-size:1.1em;line-height:.55;font-weight:300;font-family:'Cormorant Garamond',serif}
+.foot-links{display:flex;gap:20px}
+.foot-links a{font-size:var(--tx-xs);color:var(--muted);transition:color .18s}
+.foot-links a:hover{color:var(--brand)}
+.foot-copy{font-size:var(--tx-xs);color:var(--muted)}
+
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+.rv.in{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .hero-shell,.histoire-layout,.conviction-layout,.not-layout,.cta-panel{grid-template-columns:1fr}
+  .plans-grid{grid-template-columns:1fr}
+  .plan.feat{transform:none}.plan.feat:hover{transform:translateY(-3px)}
+  .grid-4,.grid-3{grid-template-columns:1fr 1fr}
+}
+@media(max-width:720px){
+  .w{padding:0 16px}
+  .nav-links a:not(.btn-nav){display:none}
+  .hero-shell,.grid-4,.grid-3,.grid-2,.faq-grid,.form-row{grid-template-columns:1fr}
+  .stats-band{grid-template-columns:1fr 1fr}
+  .hero-phone-wrap{display:none}
+  footer .foot-links{display:none}
+  .foot-in{flex-direction:column;text-align:center}
+  .section-head{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<div class="nav">
+  <div class="w">
+    <div class="nav-in">
+      <a href="#" class="brand">
+        <!-- Logo carré marine — P sérifé ligne fine -->
+        <div class="logo-box">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <rect width="100%" height="100%" fill="#FFFFFF"/>
+  <path d="
+    M 200,220 
+    L 340,220 
+    A 60,60 0 0,1 340,340 
+    L 240,340 
+    L 240,500 
+    L 100,500 
+    L 100,100 
+    L 500,100 
+    L 500,500 
+    L 280,500" 
+    fill="none" 
+    stroke="#1E2229" 
+    stroke-width="24" 
+    stroke-linecap="square" 
+    stroke-linejoin="miter"
+  />
+</svg>
+
+        </div>
+        
+		<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="30" viewBox="0 0 840 183">
+<g>
+<path d="M 697.07 169.96 C694.79,171.18 688.04,171.31 686.24,170.17 C685.25,169.54 685.04,153.63 685.24,93.94 L 685.50 18.50 L 691.73 18.20 C695.15,18.04 698.81,18.36 699.84,18.92 C700.88,19.47 704.19,23.21 707.19,27.21 C710.19,31.22 718.69,42.51 726.07,52.31 C733.46,62.10 741.45,72.90 743.82,76.31 C749.39,84.28 757.53,95.06 766.98,107.00 C774.27,116.20 778.41,121.97 778.48,123.00 C778.54,124.00 783.49,131.56 785.56,133.82 C786.73,135.10 789.22,138.58 791.09,141.55 C793.43,145.26 795.08,146.89 796.34,146.73 C798.10,146.51 798.17,143.92 798.10,82.75 L 798.03 19.00 L 810.11 19.00 L 809.67 93.75 L 809.23 168.50 L 803.18 168.80 L 797.13 169.09 L 792.82 163.42 C790.44,160.30 787.83,156.79 787.00,155.62 C786.17,154.46 785.15,153.34 784.71,153.15 C783.59,152.66 710.11,55.17 704.24,46.39 C702.99,44.52 701.30,43.00 700.49,43.00 C699.19,43.00 699.00,50.94 699.00,105.96 C699.00,167.19 698.95,168.96 697.07,169.96 ZM 312.71 170.20 C310.69,171.48 303.32,171.09 302.12,169.64 C301.29,168.65 301.06,147.88 301.24,93.39 L 301.50 18.50 L 307.22 18.20 C310.37,18.04 313.87,18.39 314.99,19.00 C316.93,20.03 320.77,24.71 350.71,62.50 C357.68,71.30 367.69,83.84 372.94,90.37 C392.45,114.61 411.19,138.76 410.85,139.23 C410.75,139.38 411.87,141.41 413.34,143.75 C416.06,148.06 417.35,148.85 418.53,146.94 C418.89,146.36 419.14,117.34 419.07,82.44 L 418.96 19.00 L 430.84 19.00 L 430.50 168.50 L 424.37 168.79 L 418.24 169.09 L 414.53 164.04 C412.49,161.26 410.07,158.43 409.16,157.74 C407.32,156.37 391.19,136.44 381.00,122.95 C373.65,113.23 370.07,108.65 350.96,84.57 C343.51,75.18 333.38,62.37 328.46,56.11 C323.53,49.84 318.79,43.81 317.91,42.70 C317.04,41.59 315.84,40.98 315.24,41.35 C314.48,41.82 314.12,61.21 314.04,105.72 C313.96,154.51 313.65,169.61 312.71,170.20 ZM 577.91 169.47 C570.32,171.51 566.37,171.97 557.50,171.87 C545.94,171.74 542.14,171.25 532.76,168.63 C521.36,165.45 503.72,155.22 503.24,151.50 C503.10,150.39 504.50,147.73 506.40,145.50 L 509.82 141.50 L 512.16 143.65 C515.67,146.88 522.08,150.45 532.50,154.98 C543.30,159.67 568.51,160.31 579.08,156.17 C585.95,153.48 592.35,148.13 595.28,142.64 C598.52,136.58 598.47,123.08 595.19,117.80 C592.77,113.90 584.23,107.00 581.82,107.00 C581.04,107.00 579.97,106.59 579.45,106.09 C578.40,105.09 567.12,101.99 554.00,99.09 C524.05,92.48 512.96,84.85 507.98,67.41 C505.39,58.39 505.48,55.06 508.54,45.88 C513.68,30.46 526.56,20.84 544.86,18.76 C554.71,17.65 575.83,18.43 577.37,19.97 C577.94,20.54 580.09,21.00 582.17,21.00 C584.24,21.00 587.63,21.74 589.72,22.64 C591.80,23.54 594.62,24.75 596.00,25.33 C599.88,26.96 607.00,31.42 607.00,32.22 C607.00,33.79 600.53,42.00 599.29,42.00 C598.56,42.00 596.28,40.95 594.23,39.66 C589.51,36.69 578.89,32.45 572.45,30.95 C569.73,30.31 563.22,29.74 558.00,29.67 C536.83,29.40 522.53,38.99 520.42,54.87 C519.47,62.04 521.81,67.76 527.94,73.22 C534.99,79.50 541.94,82.40 557.28,85.47 C568.29,87.68 580.98,90.95 584.50,92.49 C599.48,99.04 606.16,105.60 610.13,117.65 C612.35,124.38 612.49,130.17 610.63,139.07 C607.40,154.49 596.69,164.44 577.91,169.47 ZM 31.77 140.75 L 31.50 168.50 L 26.25 168.80 C23.36,168.97 20.99,168.97 20.98,168.80 C20.89,167.43 20.82,111.66 20.90,105.25 L 21.00 97.00 L 59.00 97.00 C82.46,97.00 97.00,96.63 97.00,96.05 C97.00,95.52 98.69,94.79 100.75,94.43 C105.04,93.68 112.30,89.39 116.22,85.29 C123.26,77.94 125.96,62.64 122.13,51.76 C118.68,41.94 112.77,35.98 103.42,32.89 C100.60,31.96 88.27,31.44 59.50,31.05 L 19.50 30.50 L 19.20 24.78 C18.92,19.46 19.07,19.02 21.32,18.46 C22.64,18.12 41.00,18.05 62.11,18.29 C103.46,18.77 104.34,18.87 115.38,24.47 C122.76,28.22 131.17,37.33 134.24,44.91 C136.19,49.72 136.50,52.31 136.50,63.52 C136.50,76.17 136.41,76.74 133.29,83.02 C126.46,96.82 115.28,105.40 100.92,107.87 C97.01,108.54 82.07,109.00 64.17,109.00 C34.67,109.00 34.00,109.04 34.00,111.00 C34.00,112.10 33.56,113.00 33.02,113.00 C32.40,113.00 31.93,123.39 31.77,140.75 ZM 219.50 168.23 C218.04,169.31 208.22,169.16 207.53,168.05 C207.21,167.54 207.15,144.70 207.40,117.30 C207.65,89.91 207.88,56.59 207.93,43.25 L 208.00 19.00 L 219.00 19.00 L 219.00 24.00 C219.00,26.75 219.34,29.00 219.75,29.00 C220.93,29.00 220.68,167.37 219.50,168.23 Z" fill="rgb(9,18,48)"/>
+<path d="M 766.98 107.00 C757.53,95.07 749.41,84.30 743.84,76.33 C749.38,84.26 757.51,95.02 766.99,106.96 C771.12,112.16 775.17,117.39 776.00,118.57 C783.82,129.76 796.10,144.88 796.51,143.82 C796.78,143.09 797.11,114.60 797.25,80.50 L 797.50 18.50 L 811.50 18.50 L 811.76 93.39 C811.94,147.88 811.71,168.65 810.88,169.64 C809.14,171.74 798.37,171.45 796.15,169.25 C795.17,168.29 791.28,163.23 787.51,158.00 C783.73,152.77 770.71,135.32 758.57,119.20 L 756.24 116.10 C771.49,136.26 784.25,152.95 784.71,153.15 C785.15,153.34 786.17,154.46 787.00,155.62 C787.83,156.79 790.44,160.30 792.82,163.42 L 797.13 169.09 L 803.18 168.80 L 809.23 168.50 L 809.67 93.75 L 810.11 19.00 L 798.03 19.00 L 798.10 82.75 C798.17,143.92 798.10,146.51 796.34,146.73 C795.08,146.89 793.43,145.26 791.09,141.55 C789.22,138.58 786.73,135.10 785.56,133.82 C783.49,131.56 778.54,124.00 778.48,123.00 C778.41,121.97 774.27,116.20 766.98,107.00 ZM 431.49 170.01 C429.15,172.60 420.95,172.09 417.62,169.16 C416.59,168.25 413.01,163.90 409.68,159.50 C407.32,156.40 403.47,151.47 399.85,146.91 C404.62,152.76 408.33,157.13 409.16,157.74 C410.07,158.43 412.49,161.26 414.53,164.04 L 418.24 169.09 L 424.37 168.79 L 430.50 168.50 L 430.84 19.00 L 418.96 19.00 L 419.07 82.44 C419.14,117.34 418.89,146.36 418.53,146.94 C417.35,148.85 416.06,148.06 413.34,143.75 C411.87,141.41 410.75,139.38 410.85,139.23 C410.97,139.06 408.66,135.87 404.74,130.73 C410.42,137.93 416.06,144.34 417.20,144.83 C417.63,145.01 418.10,116.66 418.24,81.83 L 418.50 18.50 L 432.50 18.50 L 432.76 93.41 C432.98,159.37 432.83,168.53 431.49,170.01 ZM 31.77 140.75 C31.93,123.39 32.40,113.00 33.02,113.00 C33.56,113.00 34.00,112.10 34.00,111.00 L 34.00 138.88 C34.00,161.59 33.70,168.99 32.75,169.74 C30.97,171.14 26.01,171.79 22.50,171.08 L 19.50 170.48 L 19.50 96.50 L 59.00 95.94 C78.17,95.67 93.80,95.16 99.75,94.64 C98.17,95.03 97.00,95.61 97.00,96.05 C97.00,96.63 82.46,97.00 59.00,97.00 L 21.00 97.00 L 20.90 105.25 C20.82,111.66 20.89,167.43 20.98,168.80 C20.99,168.97 23.36,168.97 26.25,168.80 L 31.50 168.50 ZM 218.74 171.18 C216.99,172.29 209.22,171.88 207.46,170.59 C206.17,169.64 206.01,159.64 206.24,94.00 L 206.50 18.50 L 220.49 18.50 L 220.38 51.36 C220.26,37.97 220.05,29.00 219.75,29.00 C219.34,29.00 219.00,26.75 219.00,24.00 L 219.00 19.00 L 208.00 19.00 L 207.93 43.25 C207.88,56.59 207.65,89.91 207.40,117.30 C207.15,144.70 207.21,167.54 207.53,168.05 C208.19,169.11 217.20,169.30 219.26,168.37 C219.11,170.20 218.94,171.06 218.74,171.18 ZM 586.26 21.55 C584.79,21.21 583.28,21.00 582.17,21.00 C580.09,21.00 577.94,20.54 577.37,19.97 C575.83,18.43 554.71,17.65 544.86,18.76 C537.96,19.55 531.84,21.40 526.60,24.23 C531.73,21.43 537.70,19.58 544.34,18.79 C556.58,17.35 578.48,18.60 585.12,21.12 C585.49,21.27 585.88,21.41 586.26,21.55 ZM 592.50 23.76 C596.61,24.97 607.00,31.02 607.00,32.21 C607.00,32.25 607.00,32.30 606.99,32.35 C606.99,32.30 607.00,32.26 607.00,32.22 C607.00,31.42 599.88,26.96 596.00,25.33 C595.05,24.93 593.40,24.22 591.78,23.53 C592.07,23.63 592.32,23.70 592.50,23.76 ZM 704.24 46.39 C705.97,48.98 713.60,59.31 723.52,72.59 C710.94,55.81 706.23,49.37 704.24,46.39 ZM 122.81 71.99 C124.32,65.28 124.23,57.73 122.13,51.76 C124.27,57.84 124.37,65.31 122.81,71.99 ZM 395.91 119.31 C389.32,110.87 381.20,100.63 372.94,90.37 C382.01,101.63 389.50,111.07 395.91,119.31 ZM 385.57 128.92 C383.83,126.69 382.24,124.61 381.00,122.97 C376.56,117.09 373.54,113.13 367.54,105.52 C373.49,113.08 376.56,117.07 381.00,122.95 C382.43,124.84 383.97,126.85 385.57,128.92 ZM 111.14 89.51 C112.26,88.72 113.34,87.90 114.32,87.08 C113.34,87.91 112.26,88.73 111.14,89.51 Z" fill="rgb(89,94,114)"/>
+<path d="M 0.00 91.50 L 0.00 0.00 L 420.00 0.00 L 840.00 0.00 L 840.00 91.50 L 840.00 183.00 L 420.00 183.00 L 0.00 183.00 L 0.00 91.50 ZM 32.75 169.74 C33.70,168.99 34.00,161.59 34.00,138.88 L 34.00 109.00 L 64.17 109.00 C82.07,109.00 97.01,108.54 100.92,107.87 C115.28,105.40 126.46,96.82 133.29,83.02 C136.41,76.74 136.50,76.17 136.50,63.52 C136.50,52.31 136.19,49.72 134.24,44.91 C131.17,37.33 122.76,28.22 115.38,24.47 C104.34,18.87 103.46,18.77 62.11,18.29 C41.00,18.05 22.64,18.12 21.32,18.46 C19.07,19.02 18.92,19.46 19.20,24.78 L 19.50 30.50 L 59.50 31.05 C88.27,31.44 100.60,31.96 103.42,32.89 C112.77,35.98 118.68,41.94 122.13,51.76 C125.83,62.29 123.30,77.75 116.70,84.84 C113.31,88.49 106.15,93.15 102.13,94.33 C100.01,94.94 82.06,95.62 59.00,95.94 L 19.50 96.50 L 19.50 133.49 L 19.50 170.48 L 22.50 171.08 C26.01,171.79 30.97,171.14 32.75,169.74 ZM 218.74 171.18 C219.69,170.58 220.03,153.41 220.23,94.45 L 220.49 18.50 L 213.50 18.50 L 206.50 18.50 L 206.24 94.00 C206.01,159.64 206.17,169.64 207.46,170.59 C209.22,171.88 216.99,172.29 218.74,171.18 ZM 431.49 170.01 C432.83,168.53 432.98,159.37 432.76,93.41 L 432.50 18.50 L 425.50 18.50 L 418.50 18.50 L 418.24 81.83 C418.10,116.66 417.63,145.01 417.20,144.83 C415.89,144.27 408.67,135.92 402.23,127.50 C394.52,117.41 385.16,105.55 372.94,90.37 C367.69,83.84 357.68,71.30 350.71,62.50 C320.77,24.71 316.93,20.03 314.99,19.00 C313.87,18.39 310.37,18.04 307.22,18.20 L 301.50 18.50 L 301.24 93.39 C301.06,147.88 301.29,168.65 302.12,169.64 C303.32,171.09 310.69,171.48 312.71,170.20 C313.65,169.61 313.96,154.51 314.04,105.72 C314.12,61.21 314.48,41.82 315.24,41.35 C315.84,40.98 317.04,41.59 317.91,42.70 C318.79,43.81 323.53,49.84 328.46,56.11 C333.38,62.37 343.51,75.18 350.96,84.57 C370.20,108.82 373.69,113.27 381.00,122.97 C384.58,127.71 391.12,136.07 395.55,141.54 C399.98,147.02 406.34,155.10 409.68,159.50 C413.01,163.90 416.59,168.25 417.62,169.16 C420.95,172.09 429.15,172.60 431.49,170.01 ZM 577.91 169.47 C596.69,164.44 607.40,154.49 610.63,139.07 C612.49,130.17 612.35,124.38 610.13,117.65 C606.16,105.60 599.48,99.04 584.50,92.49 C580.98,90.95 568.29,87.68 557.28,85.47 C541.94,82.40 534.99,79.50 527.94,73.22 C521.81,67.76 519.47,62.04 520.42,54.87 C522.53,38.99 536.83,29.40 558.00,29.67 C563.22,29.74 569.73,30.31 572.45,30.95 C578.89,32.45 589.51,36.69 594.23,39.66 C596.28,40.95 598.56,42.00 599.29,42.00 C600.54,42.00 607.00,33.79 607.00,32.21 C607.00,31.02 596.61,24.97 592.50,23.76 C591.40,23.43 588.08,22.25 585.12,21.12 C578.48,18.60 556.58,17.35 544.34,18.79 C526.51,20.90 513.61,30.66 508.54,45.88 C505.48,55.06 505.39,58.39 507.98,67.41 C512.96,84.85 524.05,92.48 554.00,99.09 C567.12,101.99 578.40,105.09 579.45,106.09 C579.97,106.59 581.04,107.00 581.82,107.00 C584.23,107.00 592.77,113.90 595.19,117.80 C598.47,123.08 598.52,136.58 595.28,142.64 C592.35,148.13 585.95,153.48 579.08,156.17 C568.51,160.31 543.30,159.67 532.50,154.98 C522.08,150.45 515.67,146.88 512.16,143.65 L 509.82 141.50 L 506.40 145.50 C504.50,147.73 503.10,150.39 503.24,151.50 C503.72,155.22 521.36,165.45 532.76,168.63 C542.14,171.25 545.94,171.74 557.50,171.87 C566.37,171.97 570.32,171.51 577.91,169.47 ZM 697.07 169.96 C698.95,168.96 699.00,167.19 699.00,105.96 C699.00,50.94 699.19,43.00 700.49,43.00 C701.30,43.00 702.99,44.52 704.24,46.39 C707.50,51.28 718.07,65.43 758.57,119.20 C770.71,135.32 783.73,152.77 787.51,158.00 C791.28,163.23 795.17,168.29 796.15,169.25 C798.37,171.45 809.14,171.74 810.88,169.64 C811.71,168.65 811.94,147.88 811.76,93.39 L 811.50 18.50 L 804.50 18.50 L 797.50 18.50 L 797.25 80.50 C797.11,114.60 796.78,143.09 796.51,143.82 C796.10,144.88 783.82,129.76 776.00,118.57 C775.17,117.39 771.12,112.16 766.99,106.96 C757.50,95.01 749.36,84.24 743.82,76.31 C741.45,72.90 733.46,62.10 726.07,52.31 C718.69,42.51 710.19,31.22 707.19,27.21 C704.19,23.21 700.88,19.47 699.84,18.92 C698.81,18.36 695.15,18.04 691.73,18.20 L 685.50 18.50 L 685.24 93.94 C685.04,153.63 685.25,169.54 686.24,170.17 C688.04,171.31 694.79,171.18 697.07,169.96 Z" fill="rgb(164,169,183)"/>
+<path d="M 0.00 91.50 L 0.00 0.00 L 420.00 0.00 L 840.00 0.00 L 840.00 91.50 L 840.00 183.00 L 420.00 183.00 L 0.00 183.00 L 0.00 91.50 ZM 32.75 169.74 C33.70,168.99 34.00,161.59 34.00,138.88 L 34.00 109.00 L 64.17 109.00 C82.07,109.00 97.01,108.54 100.92,107.87 C115.28,105.40 126.46,96.82 133.29,83.02 C136.41,76.74 136.50,76.17 136.50,63.52 C136.50,52.31 136.19,49.72 134.24,44.91 C131.17,37.33 122.76,28.22 115.38,24.47 C104.34,18.87 103.46,18.77 62.11,18.29 C41.00,18.05 22.64,18.12 21.32,18.46 C19.07,19.02 18.92,19.46 19.20,24.78 L 19.50 30.50 L 59.50 31.05 C88.27,31.44 100.60,31.96 103.42,32.89 C112.77,35.98 118.68,41.94 122.13,51.76 C125.83,62.29 123.30,77.75 116.70,84.84 C113.31,88.49 106.15,93.15 102.13,94.33 C100.01,94.94 82.06,95.62 59.00,95.94 L 19.50 96.50 L 19.50 133.49 L 19.50 170.48 L 22.50 171.08 C26.01,171.79 30.97,171.14 32.75,169.74 ZM 218.74 171.18 C219.69,170.58 220.03,153.41 220.23,94.45 L 220.49 18.50 L 213.50 18.50 L 206.50 18.50 L 206.24 94.00 C206.01,159.64 206.17,169.64 207.46,170.59 C209.22,171.88 216.99,172.29 218.74,171.18 ZM 431.49 170.01 C432.83,168.53 432.98,159.37 432.76,93.41 L 432.50 18.50 L 425.50 18.50 L 418.50 18.50 L 418.24 81.83 C418.10,116.66 417.63,145.01 417.20,144.83 C415.89,144.27 408.67,135.92 402.23,127.50 C394.52,117.41 385.16,105.55 372.94,90.37 C367.69,83.84 357.68,71.30 350.71,62.50 C320.77,24.71 316.93,20.03 314.99,19.00 C313.87,18.39 310.37,18.04 307.22,18.20 L 301.50 18.50 L 301.24 93.39 C301.06,147.88 301.29,168.65 302.12,169.64 C303.32,171.09 310.69,171.48 312.71,170.20 C313.65,169.61 313.96,154.51 314.04,105.72 C314.12,61.21 314.48,41.82 315.24,41.35 C315.84,40.98 317.04,41.59 317.91,42.70 C318.79,43.81 323.53,49.84 328.46,56.11 C333.38,62.37 343.51,75.18 350.96,84.57 C370.20,108.82 373.69,113.27 381.00,122.97 C384.58,127.71 391.12,136.07 395.55,141.54 C399.98,147.02 406.34,155.10 409.68,159.50 C413.01,163.90 416.59,168.25 417.62,169.16 C420.95,172.09 429.15,172.60 431.49,170.01 ZM 577.91 169.47 C596.69,164.44 607.40,154.49 610.63,139.07 C612.49,130.17 612.35,124.38 610.13,117.65 C606.16,105.60 599.48,99.04 584.50,92.49 C580.98,90.95 568.29,87.68 557.28,85.47 C541.94,82.40 534.99,79.50 527.94,73.22 C521.81,67.76 519.47,62.04 520.42,54.87 C522.53,38.99 536.83,29.40 558.00,29.67 C563.22,29.74 569.73,30.31 572.45,30.95 C578.89,32.45 589.51,36.69 594.23,39.66 C596.28,40.95 598.56,42.00 599.29,42.00 C600.54,42.00 607.00,33.79 607.00,32.21 C607.00,31.02 596.61,24.97 592.50,23.76 C591.40,23.43 588.03,22.23 585.01,21.08 C582.00,19.94 578.55,19.00 577.35,19.00 C576.15,19.00 575.02,18.58 574.83,18.06 C574.65,17.54 570.56,16.55 565.74,15.86 C558.75,14.85 555.52,14.85 549.78,15.83 C545.82,16.51 542.33,17.41 542.04,17.83 C541.74,18.25 539.47,19.19 537.00,19.91 C522.68,24.10 512.78,33.14 508.52,45.93 C505.48,55.06 505.40,58.40 507.98,67.41 C512.96,84.85 524.05,92.48 554.00,99.09 C567.12,101.99 578.40,105.09 579.45,106.09 C579.97,106.59 581.04,107.00 581.82,107.00 C584.23,107.00 592.77,113.90 595.19,117.80 C598.47,123.08 598.52,136.58 595.28,142.64 C592.35,148.13 585.95,153.48 579.08,156.17 C568.51,160.31 543.30,159.67 532.50,154.98 C522.08,150.45 515.67,146.88 512.16,143.65 L 509.82 141.50 L 506.40 145.50 C504.50,147.73 503.10,150.39 503.24,151.50 C503.72,155.22 521.36,165.45 532.76,168.63 C542.14,171.25 545.94,171.74 557.50,171.87 C566.37,171.97 570.32,171.51 577.91,169.47 ZM 697.07 169.96 C698.95,168.96 699.00,167.19 699.00,105.96 C699.00,50.94 699.19,43.00 700.49,43.00 C701.30,43.00 702.99,44.52 704.24,46.39 C707.50,51.28 718.07,65.43 758.57,119.20 C770.71,135.32 783.73,152.77 787.51,158.00 C791.28,163.23 795.17,168.29 796.15,169.25 C798.37,171.45 809.14,171.74 810.88,169.64 C811.71,168.65 811.94,147.88 811.76,93.39 L 811.50 18.50 L 804.50 18.50 L 797.50 18.50 L 797.25 80.50 C797.11,114.60 796.78,143.09 796.51,143.82 C796.10,144.88 783.82,129.76 776.00,118.57 C775.17,117.39 771.12,112.16 766.99,106.96 C757.50,95.01 749.36,84.24 743.82,76.31 C741.45,72.90 733.46,62.10 726.07,52.31 C718.69,42.51 710.19,31.22 707.19,27.21 C704.19,23.21 700.88,19.47 699.84,18.92 C698.81,18.36 695.15,18.04 691.73,18.20 L 685.50 18.50 L 685.24 93.94 C685.04,153.63 685.25,169.54 686.24,170.17 C688.04,171.31 694.79,171.18 697.07,169.96 Z" fill="rgb(252,252,252)"/>
+</g>
+</svg>
+
+      </a>
+      <nav class="nav-links">
+        <a href="#fonctionnement">Fonctionnement</a>
+        <a href="#offres">Offres</a>
+        <a href="#faq">FAQ</a>
+        <a href="#inscription" class="btn-nav">Essai gratuit 1 mois</a>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<div class="w">
+<main>
+
+<!-- ══ HERO ══ -->
+<section class="hero rv">
+  <div class="hero-shell">
+    <div class="hero-main card">
+      <div class="eyebrow">Avis, présence,note, image de marque</div>
+<h1 style="font-size: 2rem; line-height: 1.15;max-width: 28ch;">
+  PINSN - Révélez le travail bien fait.<br>
+</h1>
+<p class="hero-subtitle">
+  Bien noté, assez d’avis et des commentaires rassurants — là où vos clients regardent avant d’appeler.
+</p>
+      <div class="hero-actions">
+        <a href="#inscription" class="btn btn-p">Démarrer gratuitement</a>
+        <a href="#fonctionnement" class="btn btn-s">Voir le fonctionnement</a>
+      </div>
+      <div class="chips">
+        <span class="chip">1 mois d'essai gratuit</span>
+        <span class="chip">Résiliable à tout moment</span>
+        <span class="chip">Aucun engagement</span>
+        <span class="chip">Résultats en 48h</span>
+      </div>
+    </div>
+    <div class="hero-side">
+      <!-- Téléphone flottant -->
+      <div class="hero-phone-wrap">
+        <div class="phone-float">
+          <div class="phone">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <div class="phone-hd">
+                <div class="phone-brand">PINS<span class="a">'</span>N</div>
+                <div class="phone-sub">Bassin d'Arcachon · Ce matin</div>
+              </div>
+              <div class="notif" id="n1">
+                <div class="ntop"><div class="nd nd-g"></div><span class="napp">PINSN</span><span class="ntime">7h02</span></div>
+                <div class="ntitle">Marie T. vous a laissé 5 étoiles</div>
+                <div class="nbody">Une réponse est prête. Temps estimé : 45 sec.</div>
+                <div class="nact">Voir la réponse →</div>
+              </div>
+              <div class="notif" id="n2">
+                <div class="ntop"><div class="nd nd-o"></div><span class="napp">PINSN</span><span class="ntime">10h51</span></div>
+                <div class="ntitle">Avis 2★ — réponse prête</div>
+                <div class="nbody">Répondre rapidement réduit l'impact.</div>
+                <div class="nact">Voir la réponse →</div>
+              </div>
+              <div class="notif" id="n3">
+                <div class="ntop"><div class="nd nd-d"></div><span class="napp">PINSN</span><span class="ntime">18h30</span></div>
+                <div class="ntitle">+2 avis cette semaine.</div>
+                <div class="nbody">Le plombier voisin a 4 avis de moins ce mois.</div>
+              </div>
+              <div class="scard" id="sc">
+                <div class="stit">Progression semaine</div>
+                <div class="sr"><span class="sn">Avis</span><div class="sbw"><div class="sb" id="b1" style="width:0%"></div></div><span class="sv">+3</span></div>
+                <div class="sr"><span class="sn">Visibilité</span><div class="sbw"><div class="sb" id="b2" style="width:0%"></div></div><span class="sv">84</span></div>
+                <div class="sr"><span class="sn">Réactivité</span><div class="sbw"><div class="sb" id="b3" style="width:0%"></div></div><span class="sv">91</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+     
+  </div>
+</section>
+
+<!-- ══ STATS ══ -->
+<div class="stats-band rv">
+  <div class="stat-item"><div class="stat-n">4,<span>8</span></div><div class="stat-l">Note moyenne après 3 mois</div></div>
+  <div class="stat-item"><div class="stat-n">+<span>12</span></div><div class="stat-l">Avis par artisan / mois</div></div>
+  <div class="stat-item"><div class="stat-n">48<span>h</span></div><div class="stat-l">Pour les premiers résultats</div></div>
+</div>
+
+<!-- ══ PAS UN… ══ -->
+<section class="rv">
+  <div class="not-layout">
+    <div class="not-stack">
+      <div class="not-card"><h3>Pas d'application smartphone</h3><p>Pas une plateforme</h3><p>Nous ne créons pas un nouvel écosystème. Nous renforçons votre présence là où la demande existe déjà.</p></div>
+      <div class="not-card"><h3>Pas une agence</h3><p>Nous ne vendons pas des prestations interminables. Nous créons une présence continue qui travaille dans le temps.</p></div>
+      <div class="not-card"><h3>Pas une charge mentale</h3><p>Vous n'avez pas besoin d'un tableau de bord supplémentaire. Vous avez besoin que les bonnes choses se fassent.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONVICTION ══ -->
+<section class="rv">
+  <div class="conviction-layout">
+      <h2>Les 5 principes</h2>
+    <div class="principes">
+      <div class="pr"><div class="pr-n">Principe 01</div><div class="pr-t">Le téléphone est votre bureau</div><div class="pr-d">Tout fonctionne en une main, en deux minutes. Conçu pour une transition entre deux clients, pas pour un bureau.</div></div>
+      <div class="pr"><div class="pr-n">Principe 02</div><div class="pr-t">Une seule priorité par jour</div><div class="pr-d">Pas dix tâches. Une. Celle qui a le plus d'impact maintenant. PINSN propose à votre place.</div></div>
+ 	  <div class="pr"><div class="pr-n">Principe 03</div><div class="pr-t">PINSN conseille. Vous décidez.</div><div class="pr-d">PINSN prépare, suggère, anticipe. Mais chaque action reste sous votre contrôle. Toujours.</div></div>
+      <div class="pr"><div class="pr-n">Principe 04</div><div class="pr-t">La simplicité est une fonctionnalité</div><div class="pr-d">Chaque écran se comprend en moins de dix secondes. Sinon on le repense.</div></div>
+      <div class="pr"><div class="pr-n">Principe 05</div><div class="pr-t">Votre réputation vous appartient</div><div class="pr-d">Nous accompagnons. Nous ne possédons rien. Vous partez à tout moment, avec toutes vos données.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COMMENT ══ -->
+<section id="fonctionnement" class="section-panel rv">
+  <div class="section-head">
+    <h2>Le système qui veille pendant que vous travaillez</h2>
+    <p>Une logique simple, pensée pour vous aider à garder une meilleure visibilité sans transformer votre quotidien en nouvelle tâche.</p>
+  </div>
+  <div class="grid-4">
+    <article class="step">
+      <div class="step-num">01</div>
+      <h3>Observer</h3>
+      <p>PINSN surveille en continu votre fiche Google, vos avis, vos photos, vos concurrents locaux. Sans rien vous demander.</p>
+    </article>
+    <article class="step">
+      <div class="step-num">02</div>
+      <h3>Comprendre</h3>
+      <p>PINSN détecte les signaux qui comptent et traduit la complexité en constats clairs. Toujours en moins de dix secondes.</p>
+    </article>
+    <article class="step">
+      <div class="step-num">03</div>
+      <h3>Prioriser</h3>
+      <p>Une seule action par jour. PINSN choisit ce qui a le plus d'impact maintenant et vous le dit sans ambiguïté.</p>
+    </article>
+    <article class="step">
+      <div class="step-num">04</div>
+      <h3>Agir</h3>
+      <p>Répondre à un avis en 45 secondes. Demander un retour client d'un geste. Tout ce qui compte, simplifié.</p>
+    </article>
+  </div>
+</section>
+
+
+<!-- ══ CE QUE ÇA CHANGE ══ -->
+<section class="rv">
+  <div class="section-head">
+    <h2>Ce que cela change</h2>
+    <p>Une meilleure perception de votre sérieux, une visibilité plus nette et des signaux de confiance mieux tenus dans la durée.</p>
+  </div>
+  <div class="grid-4">
+    <article class="feature">
+      <div class="feature-dot">1</div>
+      <h3>Plus de clients</h3>
+      <p>Un nombre plus important d'avis vous donnant d'avantage de crédibilité dans les recherches sur internet.</p>
+    </article>
+	<article class="feature">
+      <div class="feature-dot">2</div>
+      <h3>Plus de clarté</h3>
+      <p>Votre entreprise donne une impression plus nette dès les premiers instants — même pour quelqu'un qui ne vous a jamais rencontré.</p>
+    </article>
+    <article class="feature">
+      <div class="feature-dot">3</div>
+      <h3>Plus de confiance</h3>
+      <p>Vos avis, votre présence et vos signaux visibles soutiennent davantage votre crédibilité auprès de vos futurs clients.</p>
+    </article>
+    <article class="feature">
+      <div class="feature-dot">4</div>
+      <h3>Moins d'oubli</h3>
+      <p>Les éléments importants — réponses aux avis, photos récentes, informations à jour — ne restent plus négligés des semaines.</p>
+    </article>
+  </div>
+</section>
+ </div>
+      <div class="hcard card"><h3>Garantie résultat</h3><p>Si vous ne recevez pas au moins 5 avis dans vos 30 premiers jours, nous vous remboursons intégralement.</p></div>
+      <div class="hcard card"><h3>Aucune carte bancaire</h3><p>Pas d'engagement. Vos premières notifications arrivent dans les 48 heures suivant l'activation.</p></div>
+    </div>
+<!-- ══ TARIFS ══ -->
+<section id="offres" class="rv">
+  <div class="section-head">
+    <h2>Une offre simple. Sans surprise.</h2>
+    <p>1 mois d'essai gratuit · Résiliable à tout moment · Aucun engagement.</p>
+  </div>
+  <div class="plans-grid">
+    <article class="plan">
+      <span class="pbadge pb-d">Starter</span>
+      <div class="plan-price">59€</div>
+      <div class="plan-period">par mois</div>
+      <ul class="plan-feats">
+        <li>SMS automatique après prestation</li>
+        <li>Jusqu'à 30 clients / mois</li>
+        <li>Lien direct fiche Google</li>
+        <li>Tableau de bord essentiel</li>
+        <li class="off">Réponses adaptée aux avis</li>
+        <li class="off">Alertes avis négatifs</li>
+      </ul>
+      <a href="#inscription" class="pbtn pbtn-o">Commencer l'essai</a>
+    </article>
+    <article class="plan feat">
+      <span class="pbadge pb-w">Le plus utilisé</span>
+      <div class="plan-price" style="color:#fff">99€</div>
+      <div class="plan-period" style="color:rgba(255,255,255,.45)">par mois</div>
+      <ul class="plan-feats">
+        <li>Tout Starter inclus</li>
+        <li>Relances automatiques J+3</li>
+        <li>Réponses adaptée aux avis</li>
+        <li>Alertes avis négatifs</li>
+        <li>Clients illimités</li>
+        <li>Support prioritaire</li>
+      </ul>
+      <a href="#inscription" class="pbtn pbtn-f">Commencer l'essai</a>
+    </article>
+    <article class="plan">
+      <span class="pbadge pb-a">Premium</span>
+      <div class="plan-price">179€</div>
+      <div class="plan-period">par mois</div>
+      <ul class="plan-feats">
+        <li>Tout Pro inclus</li>
+        <li>Optimisation fiche Google</li>
+        <li>Rapport mensuel PDF</li>
+        <li>Analyse concurrents locaux</li>
+        <li>Accompagnement dédié</li>
+        <li>Onboarding personnalisé</li>
+      </ul>
+      <a href="#inscription" class="pbtn pbtn-o">Commencer l'essai</a>
+    </article>
+  </div>
+  <p class="rv" style="text-align:center;font-size:var(--tx-xs);color:var(--muted);margin-top:18px">Garantie : si vous ne recevez pas au moins 5 avis dans vos 30 premiers jours, nous vous remboursons intégralement.</p>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section id="faq" class="rv">
+  <div class="section-head">
+    <h2>Questions fréquentes</h2>
+    <p>Les réponses utiles avant de commencer.</p>
+  </div>
+  <div class="faq-grid">
+    <article class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Est-ce conforme aux règles de Google ? <span class="faq-ic">+</span></div>
+      <div class="faq-a">Oui. Nous ne sollicitons que des avis authentiques de vrais clients. Aucune contrepartie, aucune manipulation. Révéler, jamais inventer — c'est notre mantra.</div>
+    </article>
+    <article class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Mes clients vont-ils trouver ça intrusif ? <span class="faq-ic">+</span></div>
+      <div class="faq-a">Non. Les messages sont personnalisés, courts et envoyés au bon moment. Le taux d'opt-out est inférieur à 2%. La plupart des clients sont contents de pouvoir remercier facilement leur prestataire.</div>
+    </article>
+    <article class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Combien d'avis vais-je recevoir par mois ? <span class="faq-ic">+</span></div>
+      <div class="faq-a">En moyenne 8 à 15 avis par mois selon votre volume de clientèle. Le taux de conversion SMS → avis est de 32% en moyenne.</div>
+    </article>
+    <article class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Puis-je annuler à tout moment ? <span class="faq-ic">+</span></div>
+      <div class="faq-a">Absolument. Pas d'engagement, pas de frais de résiliation. Vous résiliez en un clic depuis votre tableau de bord, à n'importe quel moment.</div>
+    </article>
+    <article class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Combien de temps pour voir des résultats ? <span class="faq-ic">+</span></div>
+      <div class="faq-a">Les premiers avis arrivent dans les 48 heures suivant l'activation. La note Google s'améliore visiblement en 2 à 3 semaines.</div>
+    </article>
+    <article class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Faut-il des connaissances techniques ? <span class="faq-ic">+</span></div>
+      <div class="faq-a">Aucune. Nous nous occupons de tout lors de l'onboarding. Vous avez juste besoin de votre téléphone.</div>
+    </article>
+  </div>
+</section>
+
+<!-- ══ FORMULAIRE CTA ══ -->
+<section id="inscription" class="rv">
+  <div class="cta-panel">
+    <div class="cta-left">
+      <div class="eyebrow" style="border-color:rgba(212,191,176,.2);background:rgba(255,255,255,.06);color:var(--bsoft)">Commencer</div>
+      <h2>1 mois gratuit.<br>Résultats en 48h.</h2>
+      <p>Aucune carte bancaire. Pas d'engagement. Vos premières notifications arrivent dans 48 heures.</p>
+      <div style="margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1)">
+        <p style="color:rgba(255,255,255,.4);font-size:var(--tx-xs);margin-bottom:10px">Ce que nos clients disent</p>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:rgba(255,255,255,.65);line-height:1.6">"Je ne sais pas très bien comment ça marche. Mais ça marche."</p>
+      </div>
+    </div>
+    <div>
+      <div id="fw">
+        <form class="form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="fg"><label>Prénom</label><input type="text" placeholder="Jean-Marc" required></div>
+            <div class="fg"><label>Nom</label><input type="text" placeholder="Dupont" required></div>
+          </div>
+          <div class="fg"><label>Téléphone</label><input type="tel" placeholder="06 12 34 56 78" required></div>
+          <div class="fg"><label>Email</label><input type="email" placeholder="jean-marc@monentreprise.fr" required></div>
+          <div class="form-row">
+            <div class="fg">
+              <label>Métier</label>
+              <select required>
+                <option value="" disabled selected>Votre métier</option>
+                <option>Commerçant</option><option>Libéral</option>
+                <option>Artisan</option><option>Santé</option>
+                <option>Restauration</option><option>Immobilier</option>
+                <option>Hébergement</option>
+                <option>Autre</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label>Plan souhaité</label>
+              <select>
+                <option>Starter — 59€/mois</option>
+                <option selected>Pro — 99€/mois</option>
+                <option>Premium — 179€/mois</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="fsub">Démarrer mon essai gratuit →</button>
+          <p class="fnote">Sans engagement · RGPD conforme · Résiliable en 1 clic</p>
+        </form>
+      </div>
+      <div class="fsuc" id="fs">
+        <div class="fsuc-ic">✓</div>
+        <h3>Bienvenue sur PINSN.</h3>
+        <p>Nous vous contactons dans les 24h.<br>Vos premières notifications arrivent dans 48h.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="foot-in">
+    <div class="foot-logo">
+      <div class="logo-box" style="width:36px;height:36px;flex:0 0 36px">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             viewBox="0 0 600 600"
+             width="100%" height="100%" aria-label="PINSN">
+          <rect width="100%" height="100%" fill="#FFFFFF"/>
+          <path d="
+            M 200,220 
+            L 340,220 
+            A 60,60 0 0,1 340,340 
+            L 240,340 
+            L 240,500 
+            L 100,500 
+            L 100,100 
+            L 500,100 
+            L 500,500 
+            L 280,500" 
+            fill="none" 
+            stroke="#1E2229" 
+            stroke-width="24" 
+            stroke-linecap="square" 
+            stroke-linejoin="miter"
+          />
+        </svg>
+      </div>
+      <div class="foot-word">PINS<span class="a">'</span>N</div>
+    </div>
+    <div class="foot-links">
+      <a href="#">Mentions légales</a>
+      <a href="#">RGPD</a>
+      <a href="mailto:contact@pinsn.fr">contact@pinsn.fr</a>
+    </div>
+    <div class="foot-copy">© 2025 PINSN · pinsn.fr · Révéler le travail bien fait</div>
+  </div>
+</footer>
+</div>
+
+<script>
+// Reveal scroll
+const rvs=document.querySelectorAll('.rv');
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('in'),i*45)});
+},{threshold:0.05});
+rvs.forEach(r=>io.observe(r));
+
+// Téléphone animation
+const phone=document.querySelector('.phone');
+let fired=false;
+function triggerPhone(){
+  if(fired)return;fired=true;
+  ['n1','n2','n3'].forEach((id,i)=>setTimeout(()=>document.getElementById(id).classList.add('on'),600+i*440));
+  setTimeout(()=>{
+    document.getElementById('sc').classList.add('on');
+    setTimeout(()=>{
+      document.getElementById('b1').style.width='68%';
+      document.getElementById('b2').style.width='84%';
+      document.getElementById('b3').style.width='91%';
+    },250);
+  },2000);
+}
+if(phone){
+  const po=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){triggerPhone();po.disconnect()}});
+  },{threshold:0.15});
+  po.observe(phone);
+  setTimeout(()=>{
+    const r=phone.getBoundingClientRect();
+    if(r.top<window.innerHeight)triggerPhone();
+  },500);
+}
+
+// FAQ
+function toggleFaq(el){el.classList.toggle('open')}
+
+// Form
+async function handleSubmit(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('.fsub');
+  btn.textContent='Envoi en cours…';btn.disabled=true;
+  await new Promise(r=>setTimeout(r,900));
+  document.getElementById('fw').style.display='none';
+  document.getElementById('fs').style.display='block';
+}
+</script>
+</body>
+</html>
