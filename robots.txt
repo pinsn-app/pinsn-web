@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: htt
+Sitemap: https://pinsn.fr/sitemap.xml
