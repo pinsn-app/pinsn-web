@@ -1,24 +1,29 @@
 <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0e2140">
+  <meta name="robots" content="index,follow">
+  <meta name="author" content="Pierre-François Bert">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PINSN™ | Indice et diagnostic de visibilité locale</title>
+  <meta name="description" content="PINSN calcule un indice explicable de visibilité locale, établit un diagnostic factuel et indique la prochaine action utile aux professionnels locaux.">
+  <link rel="canonical" href="https://pinsn.fr/">
 
-<title>PINSN | Révélez le travail bien fait.</title>
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="PINSN">
+  <meta property="og:title" content="PINSN™ — Révéler le travail bien fait">
+  <meta property="og:description" content="Votre Indice PINSN rend votre présence locale lisible. Le diagnostic explique ce qui compte et la prochaine action utile.">
+  <meta property="og:url" content="https://pinsn.fr/">
+  <meta name="twitter:card" content="summary">
 
-<meta name="description" content="PINSN est le système qui aide les artisans à renforcer leur réputation et devenir le choix évident de leurs futurs clients.">
-
-<link rel="canonical" href="https://pinsn.fr">
-
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="manifest" href="/manifest.webmanifest">
-
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>PINSN — La confiance rendue visible</title>
-<meta name="description" content="PINSN rend la qualité réelle de votre travail visible grâce à un suivi continu de vos avis, de votre présence et de vos signaux locaux."/>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg:       #f4f2ee;
@@ -101,6 +106,7 @@ img,svg{display:block;max-width:100%}
 
 .nav-links{display:flex;align-items:center;gap:32px}
 .nav-links a{font-size:var(--tx-sm);color:var(--muted);transition:color .18s}
+.nav-links a.btn-nav,.nav-links a.btn-nav:hover{color:#fff}
 .nav-links a:hover{color:var(--brand)}
 .btn-nav{
   display:inline-flex;align-items:center;justify-content:center;
@@ -521,10 +527,112 @@ footer{padding:32px 0 44px}
   .hero-shell,.grid-4,.grid-3,.grid-2,.faq-grid,.form-row{grid-template-columns:1fr}
   .stats-band{grid-template-columns:1fr 1fr}
   .hero-phone-wrap{display:none}
-  footer .foot-links{display:none}
   .foot-in{flex-direction:column;text-align:center}
   .section-head{flex-direction:column;align-items:flex-start}
 }
+
+
+/* ── VERSION PROSPECTION FACTUELLE ── */
+.hero-main h1{max-width:15ch}
+.hero-proof{margin-top:18px;padding:14px 16px;border-left:3px solid var(--acc);background:rgba(42,95,101,.055);border-radius:0 var(--r) var(--r) 0;color:var(--muted);font-size:var(--tx-sm);max-width:58ch}
+.signal-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.2vw,2.3rem);font-weight:700;color:var(--brand);letter-spacing:-.03em}
+.signal-copy{font-size:var(--tx-xs);color:var(--muted);margin-top:4px;line-height:1.55}
+.founder-layout{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:18px;align-items:stretch}
+.founder-id{background:linear-gradient(160deg,rgba(14,33,64,.97),rgba(24,43,72,.93));border-radius:var(--rxl);padding:clamp(28px,4vw,46px);color:#fff;display:flex;flex-direction:column;justify-content:space-between}
+.founder-initials{width:72px;height:72px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.07);font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--bsoft);margin-bottom:26px}
+.founder-id h2{color:#fff;margin-bottom:8px}
+.founder-role{color:var(--bsoft);font-size:var(--tx-sm)}
+.founder-copy{background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:var(--rxl);padding:clamp(28px,4vw,46px);box-shadow:var(--shadow2)}
+.founder-copy p{color:var(--muted);margin-bottom:16px;max-width:62ch}
+.founder-copy p:last-child{margin-bottom:0}
+.fact-line{font-family:'Cormorant Garamond',serif;color:var(--brand)!important;font-size:1.3rem;font-weight:700}
+.audit-panel{background:linear-gradient(160deg,rgba(14,33,64,.97),rgba(24,43,72,.93));border-radius:var(--rxl);padding:clamp(30px,5vw,54px);color:#fff}
+.audit-panel h2{color:#fff;margin:12px 0 16px}
+.audit-panel>p{color:rgba(255,255,255,.62);max-width:64ch}
+.audit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:28px 0}
+.audit-item{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:20px}
+.audit-item strong{display:block;color:#fff;margin-bottom:6px}
+.audit-item span{display:block;color:rgba(255,255,255,.58);font-size:var(--tx-sm);line-height:1.55}
+.audit-cta{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.audit-note{font-size:var(--tx-xs);color:rgba(255,255,255,.42)}
+.privacy-card{margin-top:14px;background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;color:var(--muted);font-size:var(--tx-xs)}
+.privacy-card strong{color:var(--brand)}
+.form-help{font-size:var(--tx-xs);color:rgba(255,255,255,.42);line-height:1.55;margin-top:5px}
+.direct-contact{margin-top:12px;font-size:var(--tx-xs);color:rgba(255,255,255,.55)}
+.direct-contact a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.foot-links{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+
+@media(max-width:1024px){
+  .founder-layout,.audit-grid{grid-template-columns:1fr}
+}
+@media(max-width:720px){
+  .stats-band{grid-template-columns:1fr}
+  .foot-links{display:flex;gap:12px}
+  .nav-in{padding:14px 0}
+  .logo-box{width:46px;height:46px;flex-basis:46px}
+  .hero-main h1{max-width:none}
+}
+
+
+
+/* ── PINSN ACTION V2 ── */
+.brand{position:relative}
+.brand::after{
+  content:'™';
+  position:absolute;
+  right:-14px;
+  top:4px;
+  font-size:.62rem;
+  line-height:1;
+  color:var(--muted);
+  font-family:'Inter',sans-serif;
+  font-weight:500;
+}
+.index-panel{
+  border-radius:var(--rxl);
+  padding:clamp(28px,4vw,48px);
+  background:linear-gradient(160deg,rgba(255,255,255,.92),rgba(255,255,255,.68));
+  border:1px solid rgba(17,24,32,.07);
+  box-shadow:var(--shadow);
+}
+.index-layout{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:28px;align-items:center}
+.index-intro p{color:var(--muted);max-width:48ch;margin-top:14px}
+.index-rule{margin-top:20px;padding:16px 18px;border-left:3px solid var(--acc);background:var(--accs);border-radius:0 var(--r) var(--r) 0;color:var(--brand);font-weight:600}
+.index-demo{background:var(--brand);color:#fff;border-radius:var(--rl);padding:24px;box-shadow:0 22px 50px rgba(14,33,64,.22)}
+.index-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-end;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.12)}
+.index-name{font-size:var(--tx-xs);text-transform:uppercase;letter-spacing:.09em;color:var(--bsoft);font-weight:600}
+.index-value{font-family:'Cormorant Garamond',serif;font-size:3.4rem;line-height:.9;font-weight:700}
+.index-value small{font-family:'Inter',sans-serif;font-size:.72rem;color:rgba(255,255,255,.45);font-weight:400}
+.index-confidence{text-align:right;color:rgba(255,255,255,.52);font-size:var(--tx-xs);max-width:18ch}
+.index-dims{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.index-dim{padding:12px 13px;border:1px solid rgba(255,255,255,.1);border-radius:14px;background:rgba(255,255,255,.055)}
+.index-dim strong{display:block;color:#fff;font-size:.86rem;margin-bottom:2px}
+.index-dim span{font-size:.72rem;color:rgba(255,255,255,.45);line-height:1.4}
+.index-caption{font-size:.72rem;color:rgba(255,255,255,.38);margin-top:16px;line-height:1.5}
+.principles-band{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+.principle-card{background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow2)}
+.principle-card strong{display:block;color:var(--brand);margin-bottom:5px}
+.principle-card span{font-size:var(--tx-sm);color:var(--muted)}
+.offer-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.offer-card{background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:var(--rxl);padding:clamp(24px,3vw,34px);box-shadow:var(--shadow2);display:flex;flex-direction:column}
+.offer-card.primary{background:linear-gradient(160deg,rgba(14,33,64,.98),rgba(24,43,72,.94));color:#fff;border-color:transparent;box-shadow:0 24px 60px rgba(14,33,64,.2)}
+.offer-kicker{font-size:var(--tx-xs);font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--acc);margin-bottom:12px}
+.offer-card.primary .offer-kicker{color:var(--bsoft)}
+.offer-card h3{font-family:'Cormorant Garamond',serif;font-size:1.75rem;margin-bottom:8px}
+.offer-card.primary h3{color:#fff}
+.offer-price{font-size:1.05rem;font-weight:700;color:var(--brand);margin-bottom:16px}
+.offer-card.primary .offer-price{color:#fff}
+.offer-card p{color:var(--muted);font-size:var(--tx-sm);margin-bottom:14px}
+.offer-card.primary p{color:rgba(255,255,255,.62)}
+.offer-list{list-style:none;margin:0 0 22px}
+.offer-list li{padding:8px 0;border-bottom:1px solid var(--line);font-size:var(--tx-sm);color:var(--muted)}
+.offer-card.primary .offer-list li{border-color:rgba(255,255,255,.1);color:rgba(255,255,255,.72)}
+.offer-list li:last-child{border-bottom:none}
+.offer-btn{margin-top:auto}
+.offer-note{text-align:center;color:var(--muted);font-size:var(--tx-xs);margin-top:16px}
+@media(max-width:1024px){.index-layout{grid-template-columns:1fr}.offer-grid{grid-template-columns:1fr}.principles-band{grid-template-columns:1fr}}
+@media(max-width:720px){.index-dims{grid-template-columns:1fr}.brand::after{right:-10px;top:1px}}
+
 </style>
 </head>
 <body>
@@ -570,10 +678,10 @@ footer{padding:32px 0 44px}
 
       </a>
       <nav class="nav-links">
+        <a href="#indice">Indice PINSN</a>
         <a href="#fonctionnement">Fonctionnement</a>
-        <a href="#offres">Offres</a>
-        <a href="#faq">FAQ</a>
-        <a href="#inscription" class="btn-nav">Essai gratuit 1 mois</a>
+        <a href="#offres">Offre</a>
+        <a href="#inscription" class="btn-nav">Recevoir mon diagnostic</a>
       </nav>
     </div>
   </div>
@@ -586,93 +694,145 @@ footer{padding:32px 0 44px}
 <section class="hero rv">
   <div class="hero-shell">
     <div class="hero-main card">
-      <div class="eyebrow">Avis, présence,note, image de marque</div>
-<h1 style="font-size: 2rem; line-height: 1.15;max-width: 28ch;">
-  PINSN - Révélez le travail bien fait.<br>
-</h1>
-<p class="hero-subtitle">
-  Bien noté, assez d’avis et des commentaires rassurants — Là où vos clients regardent avant d’appeler.
-</p>
+      <div class="eyebrow">PINSN™ — Révéler le travail bien fait</div>
+      <h1>Votre activité mérite d’inspirer autant confiance en ligne que dans la réalité.</h1>
+      <p class="hero-copy">PINSN analyse les signaux visibles de votre présence locale, calcule un indice explicable et établit un diagnostic qui vous indique ce qui mérite votre attention.</p>
+      <p class="hero-note">Commerces, restaurants, hôtels, artisans, professionnels de santé, professions libérales, professionnels de l’immobilier et services : PINSN s’adresse aux activités locales dont la présence en ligne participe à la confiance avant le premier contact.</p>
       <div class="hero-actions">
-        <a href="#inscription" class="btn btn-p">Démarrer gratuitement</a>
-        <a href="#fonctionnement" class="btn btn-s">Voir le fonctionnement</a>
+        <a href="#inscription" class="btn btn-p">Recevoir mon diagnostic PINSN</a>
+        <a href="#indice" class="btn btn-s">Découvrir l’Indice PINSN</a>
       </div>
       <div class="chips">
-        <span class="chip">1 mois d'essai gratuit</span>
-        <span class="chip">Résiliable à tout moment</span>
-        <span class="chip">Aucun engagement</span>
-        <span class="chip">Résultats en 48h</span>
+        <span class="chip">Faits publics uniquement</span>
+        <span class="chip">Validation humaine</span>
+        <span class="chip">Sans engagement</span>
+        <span class="chip">Vous gardez la main</span>
       </div>
+      <div class="hero-proof"><strong>Le fait est fondamental.</strong> Chaque résultat doit pouvoir être expliqué par un élément observable. L’indice résume ; le diagnostic explique ; vous décidez.</div>
     </div>
+
     <div class="hero-side">
-      <!-- Téléphone flottant -->
-      <div class="hero-phone-wrap">
+      <div class="hero-phone-wrap" aria-label="Aperçu du compagnon PINSN">
         <div class="phone-float">
           <div class="phone">
             <div class="phone-notch"></div>
             <div class="phone-screen">
               <div class="phone-hd">
-                <div class="phone-brand">PINS<span class="a">'</span>N</div>
-                <div class="phone-sub">Bassin d'Arcachon · Ce matin</div>
+                <div class="phone-brand">PINSN</div>
+                <div class="phone-sub">Exemple d’interface · Données illustratives</div>
               </div>
               <div class="notif" id="n1">
                 <div class="ntop"><div class="nd nd-g"></div><span class="napp">PINSN</span><span class="ntime">7h02</span></div>
-                <div class="ntitle">Marie T. vous a laissé 5 étoiles</div>
-                <div class="nbody">Une réponse est prête. Temps estimé : 45 sec.</div>
-                <div class="nact">Voir la réponse →</div>
+                <div class="ntitle">Votre Indice PINSN est prêt</div>
+                <div class="nbody">Six dimensions analysées. Chaque variation reste explicable.</div>
+                <div class="nact">Voir les faits →</div>
               </div>
               <div class="notif" id="n2">
                 <div class="ntop"><div class="nd nd-o"></div><span class="napp">PINSN</span><span class="ntime">10h51</span></div>
-                <div class="ntitle">Avis 2★ — réponse prête</div>
-                <div class="nbody">Répondre rapidement réduit l'impact.</div>
-                <div class="nact">Voir la réponse →</div>
+                <div class="ntitle">Preuve visuelle à renforcer</div>
+                <div class="nbody">Peu de photos récentes sont visibles malgré une réputation solide.</div>
+                <div class="nact">Voir le constat →</div>
               </div>
               <div class="notif" id="n3">
                 <div class="ntop"><div class="nd nd-d"></div><span class="napp">PINSN</span><span class="ntime">18h30</span></div>
-                <div class="ntitle">+2 avis cette semaine.</div>
-                <div class="nbody">Le plombier voisin a 4 avis de moins ce mois.</div>
+                <div class="ntitle">Une priorité, pas dix</div>
+                <div class="nbody">Commencer par renforcer les preuves qui rassurent avant la demande de devis.</div>
               </div>
               <div class="scard" id="sc">
-                <div class="stit">Progression semaine</div>
-                <div class="sr"><span class="sn">Avis</span><div class="sbw"><div class="sb" id="b1" style="width:0%"></div></div><span class="sv">+3</span></div>
-                <div class="sr"><span class="sn">Visibilité</span><div class="sbw"><div class="sb" id="b2" style="width:0%"></div></div><span class="sv">84</span></div>
-                <div class="sr"><span class="sn">Réactivité</span><div class="sbw"><div class="sb" id="b3" style="width:0%"></div></div><span class="sv">91</span></div>
+                <div class="stit">Indice PINSN · exemple</div>
+                <div class="sr"><span class="sn">Indice</span><div class="sbw"><div class="sb" id="b1" style="width:0%"></div></div><span class="sv">✓</span></div>
+                <div class="sr"><span class="sn">Confiance</span><div class="sbw"><div class="sb" id="b2" style="width:0%"></div></div><span class="sv">✓</span></div>
+                <div class="sr"><span class="sn">Action</span><div class="sbw"><div class="sb" id="b3" style="width:0%"></div></div><span class="sv">1</span></div>
               </div>
             </div>
           </div>
         </div>
-     
-  </div>
-</section>
-
-<!-- ══ STATS ══ -->
-<div class="stats-band rv">
-  <div class="stat-item"><div class="stat-n">4,<span>8</span></div><div class="stat-l">Note moyenne après 3 mois</div></div>
-  <div class="stat-item"><div class="stat-n">+<span>12</span></div><div class="stat-l">Avis par artisan / mois</div></div>
-  <div class="stat-item"><div class="stat-n">48<span>h</span></div><div class="stat-l">Pour les premiers résultats</div></div>
-</div>
-
-<!-- ══ PAS UN… ══ -->
-<section class="rv">
-  <div class="not-layout">
-    <div class="not-stack">
-      <div class="not-card"><h3>Pas d'application smartphone</h3><p>Pas une plateforme</h3><p>Nous ne créons pas un nouvel écosystème. Nous renforçons votre présence là où la demande existe déjà.</p></div>
-      <div class="not-card"><h3>Pas une agence</h3><p>Nous ne vendons pas des prestations interminables. Nous créons une présence continue qui travaille dans le temps.</p></div>
-      <div class="not-card"><h3>Pas une charge mentale</h3><p>Vous n'avez pas besoin d'un tableau de bord supplémentaire. Vous avez besoin que les bonnes choses se fassent.</p></div>
+      </div>
+      <div class="hcard card"><h3>Le fait avant le discours</h3><p>Chaque constat doit pouvoir être relié à un élément visible : avis, photos, fiche, site ou cohérence de marque.</p></div>
+      <div class="hcard card"><h3>Une décision humaine</h3><p>PINSN prépare et explique. Vous décidez toujours de la suite à donner.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ══ CONVICTION ══ -->
+<!-- ══ STATS ══ -->
+<div class="stats-band rv" aria-label="Signaux analysés par PINSN">
+  <div class="stat-item"><div class="signal-title">Avis</div><div class="signal-copy">Volume, fraîcheur, note et qualité des réponses visibles.</div></div>
+  <div class="stat-item"><div class="signal-title">Photos</div><div class="signal-copy">Quantité, récence et capacité à montrer le travail réalisé.</div></div>
+  <div class="stat-item"><div class="signal-title">Cohérence</div><div class="signal-copy">Fiche Google, site, identité et moyens de contact.</div></div>
+</div>
+
+<!-- ══ INDICE PINSN ══ -->
+<section id="indice" class="rv">
+  <div class="index-panel">
+    <div class="index-layout">
+      <div class="index-intro">
+        <span class="tag">Le cœur du produit</span>
+        <h2>Votre présence locale, enfin lisible.</h2>
+        <p>L’Indice PINSN est la synthèse quantitative d’un diagnostic plus large. Il agrège les signaux visibles de votre entreprise, distingue la qualité observée de la couverture des données et reste explicable jusque dans chaque contribution.</p>
+        <p>Il ne se contente pas d’afficher un chiffre : il montre ce qui soutient votre présence, ce qui la fragilise et les faits sur lesquels repose cette lecture.</p>
+        <div class="index-rule">Un indice pour mesurer. Un diagnostic pour comprendre. Une décision qui vous appartient.</div>
+      </div>
+      <div class="index-demo" aria-label="Exemple illustratif de l’Indice PINSN">
+        <div class="index-head">
+          <div>
+            <div class="index-name">Indice PINSN · exemple illustratif</div>
+            <div class="index-value">64<small>/100</small></div>
+          </div>
+          <div class="index-confidence">Confiance des données : affichée séparément de la qualité de la présence.</div>
+        </div>
+        <div class="index-dims">
+          <div class="index-dim"><strong>Réputation</strong><span>Avis, note, fraîcheur et réponses visibles.</span></div>
+          <div class="index-dim"><strong>Contenu</strong><span>Photos et preuves qui montrent le travail réel.</span></div>
+          <div class="index-dim"><strong>Site</strong><span>Clarté, accessibilité et cohérence du site public.</span></div>
+          <div class="index-dim"><strong>Profil</strong><span>Complétude et cohérence de la fiche locale.</span></div>
+          <div class="index-dim"><strong>Activité</strong><span>Signaux de présence et de mise à jour dans le temps.</span></div>
+          <div class="index-dim"><strong>Confiance</strong><span>Éléments qui rassurent avant le premier contact.</span></div>
+        </div>
+        <div class="index-caption">Valeur fictive utilisée uniquement pour expliquer le fonctionnement. Un véritable Indice PINSN est calculé à partir de faits observés, avec une version et un niveau de confiance.</div>
+      </div>
+    </div>
+  </div>
+  <div class="principles-band">
+    <div class="principle-card"><strong>Le fait est fondamental.</strong><span>Aucun résultat sans élément observable et traçable.</span></div>
+    <div class="principle-card"><strong>Révéler. Jamais inventer.</strong><span>PINSN ne fabrique ni avis, ni réputation, ni preuve.</span></div>
+    <div class="principle-card"><strong>PINSN conseille. Vous décidez.</strong><span>L’explication et la priorité servent votre décision, pas l’inverse.</span></div>
+  </div>
+</section>
+
+<!-- ══ PAS UN… ══ -->
 <section class="rv">
-  <div class="conviction-layout">
-      <h2>Les 5 principes</h2>
-    <div class="principes">
-      <div class="pr"><div class="pr-n">Principe 01</div><div class="pr-t">Le téléphone est votre bureau</div><div class="pr-d">Tout fonctionne en une main, en deux minutes. Conçu pour une transition entre deux clients, pas pour un bureau.</div></div>
-      <div class="pr"><div class="pr-n">Principe 02</div><div class="pr-t">Une seule priorité par jour</div><div class="pr-d">Pas dix tâches. Une. Celle qui a le plus d'impact maintenant. PINSN propose à votre place.</div></div>
- 	  <div class="pr"><div class="pr-n">Principe 03</div><div class="pr-t">PINSN conseille. Vous décidez.</div><div class="pr-d">PINSN prépare, suggère, anticipe. Mais chaque action reste sous votre contrôle. Toujours.</div></div>
-      <div class="pr"><div class="pr-n">Principe 04</div><div class="pr-t">La simplicité est une fonctionnalité</div><div class="pr-d">Chaque écran se comprend en moins de dix secondes. Sinon on le repense.</div></div>
-      <div class="pr"><div class="pr-n">Principe 05</div><div class="pr-t">Votre réputation vous appartient</div><div class="pr-d">Nous accompagnons. Nous ne possédons rien. Vous partez à tout moment, avec toutes vos données.</div></div>
+  <div class="not-layout">
+    <div class="not-quote">
+      <span class="tag" style="color:var(--bsoft)">La méthode</span>
+      <h2>La confiance ne s’invente pas. Elle se rend visible.</h2>
+      <p>PINSN ne fabrique ni avis, ni réputation. Le diagnostic part de ce qui existe réellement et identifie ce qui mérite d’être mieux montré.</p>
+      <strong>Révéler, jamais inventer.</strong>
+    </div>
+    <div class="not-stack">
+      <div class="not-card"><h3>Pas un rapport générique</h3><p>Les constats citent des faits propres à votre présence locale.</p></div>
+      <div class="not-card"><h3>Pas une promesse de classement</h3><p>Aucune note magique : seulement des actions compréhensibles et vérifiables.</p></div>
+      <div class="not-card"><h3>Pas une perte de contrôle</h3><p>PINSN prépare et priorise. Aucune action n’est menée sans votre décision.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ À PROPOS ══ -->
+<section id="a-propos" class="rv">
+  <div class="founder-layout">
+    <div class="founder-id">
+      <div>
+        <div class="founder-initials" aria-hidden="true">PFB</div>
+        <span class="tag" style="color:var(--bsoft)">Derrière PINSN</span>
+        <h2>Pierre-François Bert</h2>
+        <div class="founder-role">Fondateur — PINSN</div>
+      </div>
+      <p style="color:rgba(255,255,255,.48);font-size:var(--tx-xs);margin-top:24px">Bassin d’Arcachon · France</p>
+    </div>
+    <div class="founder-copy">
+      <span class="tag">Pourquoi PINSN</span>
+      <p class="fact-line">Le travail bien fait existe déjà. Le problème est qu’il n’est pas toujours visible au moment où le client choisit.</p>
+      <p>PINSN est né de cette idée simple : observer les signaux publics d’un professionnel ou d’une activité locale, les traduire en constats compréhensibles et faire ressortir une priorité utile — sans jargon, sans manipulation et sans automatiser la décision humaine.</p>
+      <p>Les premiers diagnostics sont relus avant d’être transmis. L’objectif n’est pas de vendre un rapport standard, mais de commencer par un fait suffisamment solide pour mériter l’attention.</p>
     </div>
   </div>
 </section>
@@ -680,150 +840,170 @@ footer{padding:32px 0 44px}
 <!-- ══ COMMENT ══ -->
 <section id="fonctionnement" class="section-panel rv">
   <div class="section-head">
-    <h2>Le système qui veille pendant que vous travaillez</h2>
-    <p>Une logique simple, pensée pour vous aider à garder une meilleure visibilité sans transformer votre quotidien en nouvelle tâche.</p>
+    <h2>Du signal public à l’action utile</h2>
+    <p>Une méthode simple pour comprendre ce que voit un futur client et décider de la prochaine amélioration.</p>
   </div>
   <div class="grid-4">
     <article class="step">
       <div class="step-num">01</div>
       <h3>Observer</h3>
-      <p>PINSN surveille en continu votre fiche Google, vos avis, vos photos, vos concurrents locaux. Sans rien vous demander.</p>
+      <p>PINSN examine les éléments publics : fiche Google, avis, photos, site, identité et moyens de contact.</p>
     </article>
     <article class="step">
       <div class="step-num">02</div>
-      <h3>Comprendre</h3>
-      <p>PINSN détecte les signaux qui comptent et traduit la complexité en constats clairs. Toujours en moins de dix secondes.</p>
+      <h3>Relier</h3>
+      <p>Les signaux sont rapprochés pour distinguer un détail isolé d’un vrai point de confiance.</p>
     </article>
     <article class="step">
       <div class="step-num">03</div>
       <h3>Prioriser</h3>
-      <p>Une seule action par jour. PINSN choisit ce qui a le plus d'impact maintenant et vous le dit sans ambiguïté.</p>
+      <p>Le diagnostic fait ressortir une action concrète plutôt qu’une longue liste de recommandations.</p>
     </article>
     <article class="step">
       <div class="step-num">04</div>
-      <h3>Agir</h3>
-      <p>Répondre à un avis en 45 secondes. Demander un retour client d'un geste. Tout ce qui compte, simplifié.</p>
+      <h3>Décider</h3>
+      <p>Vous recevez les faits et leur explication. Vous choisissez librement d’agir, de différer ou d’ignorer.</p>
     </article>
   </div>
 </section>
-
 
 <!-- ══ CE QUE ÇA CHANGE ══ -->
 <section class="rv">
   <div class="section-head">
-    <h2>Ce que cela change</h2>
-    <p>Une meilleure perception de votre sérieux, une visibilité plus nette et des signaux de confiance mieux tenus dans la durée.</p>
+    <h2>Ce que le diagnostic apporte</h2>
+    <p>Pas une certitude artificielle : une lecture plus nette de votre présence actuelle.</p>
   </div>
   <div class="grid-4">
     <article class="feature">
       <div class="feature-dot">1</div>
-      <h3>Plus de clients</h3>
-      <p>Un nombre plus important d'avis vous donnant d'avantage de crédibilité dans les recherches sur internet.</p>
+      <h3>Voir comme un prospect</h3>
+      <p>Comprendre ce qu’une personne découvre avant de vous appeler ou de demander un devis.</p>
     </article>
-	<article class="feature">
+    <article class="feature">
       <div class="feature-dot">2</div>
-      <h3>Plus de clarté</h3>
-      <p>Votre entreprise donne une impression plus nette dès les premiers instants — même pour quelqu'un qui ne vous a jamais rencontré.</p>
+      <h3>Repérer les écarts</h3>
+      <p>Identifier les différences entre la qualité réelle de l’entreprise et les preuves visibles en ligne.</p>
     </article>
     <article class="feature">
       <div class="feature-dot">3</div>
-      <h3>Plus de confiance</h3>
-      <p>Vos avis, votre présence et vos signaux visibles soutiennent davantage votre crédibilité auprès de vos futurs clients.</p>
+      <h3>Éviter le bruit</h3>
+      <p>Écarter les conseils génériques pour se concentrer sur un fait précis et vérifiable.</p>
     </article>
     <article class="feature">
       <div class="feature-dot">4</div>
-      <h3>Moins d'oubli</h3>
-      <p>Les éléments importants — réponses aux avis, photos récentes, informations à jour — ne restent plus négligés des semaines.</p>
+      <h3>Choisir la suite</h3>
+      <p>Disposer d’une priorité claire, sans abonnement imposé ni action automatique.</p>
     </article>
   </div>
 </section>
- </div>
-      <div class="hcard card"><h3>Garantie résultat</h3><p>Si vous ne recevez pas au moins 5 avis dans vos 30 premiers jours, nous vous remboursons intégralement.</p></div>
-      <div class="hcard card"><h3>Aucune carte bancaire</h3><p>Pas d'engagement. Vos premières notifications arrivent dans les 48 heures suivant l'activation.</p></div>
+
+<!-- ══ DIAGNOSTIC ══ -->
+<section id="diagnostic" class="rv">
+  <div class="audit-panel">
+    <span class="tag" style="color:var(--bsoft)">Première étape</span>
+    <h2>Recevez votre Diagnostic PINSN gratuit, court et factuel.</h2>
+    <p>Le diagnostic est construit à partir des éléments publics de votre activité. Il présente une première lecture de l’Indice PINSN, les faits qui l’expliquent et l’action la plus utile à examiner.</p>
+    <div class="audit-grid">
+      <div class="audit-item"><strong>Les faits observés</strong><span>Les signaux visibles qui soutiennent ou limitent la confiance.</span></div>
+      <div class="audit-item"><strong>L’Indice PINSN</strong><span>Une synthèse explicable, accompagnée de ses dimensions et de la confiance des données.</span></div>
+      <div class="audit-item"><strong>La prochaine action</strong><span>Une suggestion concrète que vous restez libre d’appliquer.</span></div>
     </div>
-<!-- ══ TARIFS ══ -->
+    <div class="audit-cta">
+      <a href="#inscription" class="btn" style="background:#fff;color:var(--brand)">Demander mon Diagnostic PINSN</a>
+      <span class="audit-note">Sans carte bancaire · Sans engagement · Réponse humaine</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ OFFRES ══ -->
 <section id="offres" class="rv">
   <div class="section-head">
-    <h2>Une offre simple. Sans surprise.</h2>
-    <p>1 mois d'essai gratuit · Résiliable à tout moment · Aucun engagement.</p>
+    <h2>Une entrée simple. Une progression claire.</h2>
+    <p>Le diagnostic permet de comprendre la situation. L’abonnement permet de suivre l’Indice PINSN, détecter les évolutions utiles et préparer les actions dans la durée.</p>
   </div>
-  <div class="plans-grid">
-    <article class="plan">
-      <span class="pbadge pb-d">Starter</span>
-      <div class="plan-price">59€</div>
-      <div class="plan-period">par mois</div>
-      <ul class="plan-feats">
-        <li>SMS automatique après prestation</li>
-        <li>Jusqu'à 30 clients / mois</li>
-        <li>Lien direct fiche Google</li>
-        <li>Tableau de bord essentiel</li>
-        <li class="off">Réponses adaptée aux avis</li>
-        <li class="off">Alertes avis négatifs</li>
+  <div class="offer-grid">
+    <article class="offer-card">
+      <div class="offer-kicker">Première étape</div>
+      <h3>Diagnostic PINSN</h3>
+      <div class="offer-price">Gratuit</div>
+      <p>Une photographie initiale de votre présence locale, fondée sur les éléments publics disponibles.</p>
+      <ul class="offer-list">
+        <li>Première lecture de l’Indice PINSN</li>
+        <li>Faits observés et niveau de confiance</li>
+        <li>Point principal expliqué</li>
+        <li>Une action prioritaire à examiner</li>
       </ul>
-      <a href="#inscription" class="pbtn pbtn-o">Commencer l'essai</a>
+      <a href="#inscription" class="btn btn-s offer-btn">Recevoir mon diagnostic</a>
     </article>
-    <article class="plan feat">
-      <span class="pbadge pb-w">Le plus utilisé</span>
-      <div class="plan-price" style="color:#fff">99€</div>
-      <div class="plan-period" style="color:rgba(255,255,255,.45)">par mois</div>
-      <ul class="plan-feats">
-        <li>Tout Starter inclus</li>
-        <li>Relances automatiques J+3</li>
-        <li>Réponses adaptée aux avis</li>
-        <li>Alertes avis négatifs</li>
-        <li>Clients illimités</li>
-        <li>Support prioritaire</li>
+    <article class="offer-card primary">
+      <div class="offer-kicker">Offre principale</div>
+      <h3>PINSN Essentiel</h3>
+      <div class="offer-price">Abonnement mensuel · sans engagement</div>
+      <p>Le suivi continu de votre visibilité locale, sans transformer votre quotidien en nouvelle charge mentale.</p>
+      <ul class="offer-list">
+        <li>Indice PINSN mis à jour et historisé</li>
+        <li>Évolutions importantes signalées</li>
+        <li>Recommandations expliquées et priorisées</li>
+        <li>Actions et réponses préparées</li>
+        <li>Contrôle humain avant toute action</li>
       </ul>
-      <a href="#inscription" class="pbtn pbtn-f">Commencer l'essai</a>
+      <a href="#inscription" class="btn offer-btn" style="background:#fff;color:var(--brand)">Demander l’accès pilote</a>
     </article>
-    <article class="plan">
-      <span class="pbadge pb-a">Premium</span>
-      <div class="plan-price">179€</div>
-      <div class="plan-period">par mois</div>
-      <ul class="plan-feats">
-        <li>Tout Pro inclus</li>
-        <li>Optimisation fiche Google</li>
-        <li>Rapport mensuel PDF</li>
-        <li>Analyse concurrents locaux</li>
-        <li>Accompagnement dédié</li>
-        <li>Onboarding personnalisé</li>
+    <article class="offer-card">
+      <div class="offer-kicker">Besoins particuliers</div>
+      <h3>Accompagnement</h3>
+      <div class="offer-price">Sur demande</div>
+      <p>Pour les structures multi-établissements ou celles qui souhaitent un suivi humain plus poussé.</p>
+      <ul class="offer-list">
+        <li>Diagnostic approfondi</li>
+        <li>Lecture multi-sites</li>
+        <li>Priorités adaptées à l’organisation</li>
+        <li>Échange direct avec le fondateur</li>
       </ul>
-      <a href="#inscription" class="pbtn pbtn-o">Commencer l'essai</a>
+      <a href="mailto:contact@pinsn.fr?subject=Accompagnement%20PINSN" class="btn btn-s offer-btn">Échanger avec Pierre-François</a>
     </article>
   </div>
-  <p class="rv" style="text-align:center;font-size:var(--tx-xs);color:var(--muted);margin-top:18px">Garantie : si vous ne recevez pas au moins 5 avis dans vos 30 premiers jours, nous vous remboursons intégralement.</p>
+  <p class="offer-note">L’inscription autonome et le paiement en ligne seront activés lorsque l’onboarding complet aura été validé. Aucun paiement n’est actuellement collecté sur cette page.</p>
 </section>
 
 <!-- ══ FAQ ══ -->
 <section id="faq" class="rv">
   <div class="section-head">
     <h2>Questions fréquentes</h2>
-    <p>Les réponses utiles avant de commencer.</p>
+    <p>Ce qui est utile de savoir sur l’Indice PINSN, le diagnostic et la suite.</p>
   </div>
   <div class="faq-grid">
     <article class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">Est-ce conforme aux règles de Google ? <span class="faq-ic">+</span></div>
-      <div class="faq-a">Oui. Nous ne sollicitons que des avis authentiques de vrais clients. Aucune contrepartie, aucune manipulation. Révéler, jamais inventer — c'est notre mantra.</div>
+      <div class="faq-q">Quelle différence entre l’Indice PINSN et le diagnostic ? <span class="faq-ic">+</span></div>
+      <div class="faq-a">L’indice est la synthèse quantitative et explicable. Le diagnostic est le produit complet : il relie l’indice aux faits observés, aux opportunités possibles et à la décision utile.</div>
     </article>
     <article class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">Mes clients vont-ils trouver ça intrusif ? <span class="faq-ic">+</span></div>
-      <div class="faq-a">Non. Les messages sont personnalisés, courts et envoyés au bon moment. Le taux d'opt-out est inférieur à 2%. La plupart des clients sont contents de pouvoir remercier facilement leur prestataire.</div>
+      <div class="faq-q">Puis-je m’abonner directement ? <span class="faq-ic">+</span></div>
+      <div class="faq-a">L’inscription et le paiement autonomes sont prévus. Pendant la phase pilote, l’activation reste accompagnée afin de valider l’onboarding, la qualité des données et la valeur réellement délivrée.</div>
     </article>
     <article class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">Combien d'avis vais-je recevoir par mois ? <span class="faq-ic">+</span></div>
-      <div class="faq-a">En moyenne 8 à 15 avis par mois selon votre volume de clientèle. Le taux de conversion SMS → avis est de 32% en moyenne.</div>
+      <div class="faq-q">Sur quoi repose le diagnostic ? <span class="faq-ic">+</span></div>
+      <div class="faq-a">Sur des éléments publics et vérifiables : fiche Google, avis, photos, site, cohérence des informations et moyens de contact.</div>
     </article>
     <article class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">Puis-je annuler à tout moment ? <span class="faq-ic">+</span></div>
-      <div class="faq-a">Absolument. Pas d'engagement, pas de frais de résiliation. Vous résiliez en un clic depuis votre tableau de bord, à n'importe quel moment.</div>
+      <div class="faq-q">Faut-il me connecter à ma fiche Google ? <span class="faq-ic">+</span></div>
+      <div class="faq-a">Non. Le premier diagnostic ne nécessite aucun identifiant ni accès à vos comptes.</div>
     </article>
     <article class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">Combien de temps pour voir des résultats ? <span class="faq-ic">+</span></div>
-      <div class="faq-a">Les premiers avis arrivent dans les 48 heures suivant l'activation. La note Google s'améliore visiblement en 2 à 3 semaines.</div>
+      <div class="faq-q">Le diagnostic est-il entièrement automatique ? <span class="faq-ic">+</span></div>
+      <div class="faq-a">Les données peuvent être analysées automatiquement, mais les constats transmis sont relus afin d’écarter les incohérences et les conclusions fragiles.</div>
     </article>
     <article class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">Faut-il des connaissances techniques ? <span class="faq-ic">+</span></div>
-      <div class="faq-a">Aucune. Nous nous occupons de tout lors de l'onboarding. Vous avez juste besoin de votre téléphone.</div>
+      <div class="faq-q">Que vais-je recevoir ? <span class="faq-ic">+</span></div>
+      <div class="faq-a">Un court résumé des faits observés, du point principal et d’une action prioritaire. Pas un rapport générique de plusieurs dizaines de pages.</div>
+    </article>
+    <article class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Suis-je obligé de poursuivre ensuite ? <span class="faq-ic">+</span></div>
+      <div class="faq-a">Non. Le diagnostic est une première lecture. Vous restez libre de l’utiliser seul, d’en discuter ou de ne donner aucune suite.</div>
+    </article>
+    <article class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Comment mes coordonnées sont-elles utilisées ? <span class="faq-ic">+</span></div>
+      <div class="faq-a">Elles servent uniquement à répondre à votre demande. Le formulaire ci-dessous ouvre votre propre messagerie : cette page ne stocke pas les champs saisis.</div>
     </article>
   </div>
 </section>
@@ -832,144 +1012,146 @@ footer{padding:32px 0 44px}
 <section id="inscription" class="rv">
   <div class="cta-panel">
     <div class="cta-left">
-      <div class="eyebrow" style="border-color:rgba(212,191,176,.2);background:rgba(255,255,255,.06);color:var(--bsoft)">Commencer</div>
-      <h2>1 mois gratuit.<br>Résultats en 48h.</h2>
-      <p>Aucune carte bancaire. Pas d'engagement. Vos premières notifications arrivent dans 48 heures.</p>
+      <div class="eyebrow" style="border-color:rgba(212,191,176,.2);background:rgba(255,255,255,.06);color:var(--bsoft)">Diagnostic PINSN</div>
+      <h2>Commençons par un fait.</h2>
+      <p>Indiquez votre entreprise et votre ville. Votre messagerie s’ouvrira avec une demande préremplie à destination de Pierre-François Bert.</p>
       <div style="margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1)">
-        <p style="color:rgba(255,255,255,.4);font-size:var(--tx-xs);margin-bottom:10px">Ce que nos clients disent</p>
-        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:rgba(255,255,255,.65);line-height:1.6">"Je ne sais pas très bien comment ça marche. Mais ça marche."</p>
+        <p style="color:rgba(255,255,255,.38);font-size:var(--tx-xs);margin-bottom:8px">Contact direct</p>
+        <p style="color:rgba(255,255,255,.75)">Pierre-François Bert<br><span style="color:var(--bsoft)">Fondateur — PINSN</span></p>
+        <p class="direct-contact"><a href="mailto:contact@pinsn.fr">contact@pinsn.fr</a></p>
       </div>
     </div>
     <div>
       <div id="fw">
         <form class="form" onsubmit="handleSubmit(event)">
           <div class="form-row">
-            <div class="fg"><label>Prénom</label><input type="text" placeholder="Jean-Marc" required></div>
-            <div class="fg"><label>Nom</label><input type="text" placeholder="Dupont" required></div>
+            <div class="fg"><label for="firstName">Prénom</label><input id="firstName" name="firstName" type="text" autocomplete="given-name" placeholder="Jean-Marc" required></div>
+            <div class="fg"><label for="lastName">Nom</label><input id="lastName" name="lastName" type="text" autocomplete="family-name" placeholder="Dupont" required></div>
           </div>
-          <div class="fg"><label>Téléphone</label><input type="tel" placeholder="06 12 34 56 78" required></div>
-          <div class="fg"><label>Email</label><input type="email" placeholder="jean-marc@monentreprise.fr" required></div>
+          <div class="fg"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="jean-marc@monentreprise.fr" required></div>
+          <div class="fg"><label for="company">Activité / établissement</label><input id="company" name="company" type="text" autocomplete="organization" placeholder="Nom de votre activité ou établissement" required></div>
           <div class="form-row">
-            <div class="fg">
-              <label>Métier</label>
-              <select required>
-                <option value="" disabled selected>Votre métier</option>
-                <option>Commerçant</option><option>Libéral</option>
-                <option>Artisan</option><option>Santé</option>
-                <option>Restauration</option><option>Immobilier</option>
-                <option>Hébergement</option>
-                <option>Autre</option>
-              </select>
-            </div>
-            <div class="fg">
-              <label>Plan souhaité</label>
-              <select>
-                <option>Starter — 59€/mois</option>
-                <option selected>Pro — 99€/mois</option>
-                <option>Premium — 179€/mois</option>
-              </select>
-            </div>
+            <div class="fg"><label for="trade">Métier</label><input id="trade" name="trade" type="text" placeholder="Plombier, restaurant, hôtel, avocat, commerce…" required></div>
+            <div class="fg"><label for="city">Ville ou zone</label><input id="city" name="city" type="text" autocomplete="address-level2" placeholder="Arcachon" required></div>
           </div>
-          <button type="submit" class="fsub">Démarrer mon essai gratuit →</button>
-          <p class="fnote">Sans engagement · RGPD conforme · Résiliable en 1 clic</p>
+          <div class="fg"><label for="website">Site ou fiche Google <span style="font-weight:400">(facultatif)</span></label><input id="website" name="website" type="url" inputmode="url" placeholder="https://..."></div>
+          <button type="submit" class="fsub">Ouvrir ma demande dans ma messagerie →</button>
+          <p class="form-help">Ce bouton ouvre votre logiciel de messagerie avec les informations ci-dessus. Aucune donnée n’est envoyée ni stockée par cette page.</p>
         </form>
       </div>
-      <div class="fsuc" id="fs">
+      <div class="fsuc" id="fs" aria-live="polite">
         <div class="fsuc-ic">✓</div>
-        <h3>Bienvenue sur PINSN.</h3>
-        <p>Nous vous contactons dans les 24h.<br>Vos premières notifications arrivent dans 48h.</p>
+        <h3>Votre messagerie va s’ouvrir.</h3>
+        <p>Vérifiez le message puis envoyez-le à contact@pinsn.fr.</p>
       </div>
     </div>
   </div>
+  <div id="confidentialite" class="privacy-card">
+    <strong>Confidentialité.</strong> Cette page ne possède pas de base de données et ne stocke pas le contenu du formulaire. Le bouton prépare un e-mail dans votre propre messagerie. Les informations envoyées à PINSN sont utilisées uniquement pour répondre à votre demande de diagnostic. Pour toute demande relative à vos données : <a href="mailto:contact@pinsn.fr" style="text-decoration:underline">contact@pinsn.fr</a>.
+  </div>
 </section>
-
-</main>
 
 <!-- ══ FOOTER ══ -->
 <footer>
   <div class="foot-in">
     <div class="foot-logo">
       <div class="logo-box" style="width:36px;height:36px;flex:0 0 36px">
-        <svg xmlns="http://www.w3.org/2000/svg"
-             viewBox="0 0 600 600"
-             width="100%" height="100%" aria-label="PINSN">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%" aria-label="PINSN">
           <rect width="100%" height="100%" fill="#FFFFFF"/>
-          <path d="
-            M 200,220 
-            L 340,220 
-            A 60,60 0 0,1 340,340 
-            L 240,340 
-            L 240,500 
-            L 100,500 
-            L 100,100 
-            L 500,100 
-            L 500,500 
-            L 280,500" 
-            fill="none" 
-            stroke="#1E2229" 
-            stroke-width="24" 
-            stroke-linecap="square" 
-            stroke-linejoin="miter"
-          />
+          <path d="M 200,220 L 340,220 A 60,60 0 0,1 340,340 L 240,340 L 240,500 L 100,500 L 100,100 L 500,100 L 500,500 L 280,500" fill="none" stroke="#1E2229" stroke-width="24" stroke-linecap="square" stroke-linejoin="miter"/>
         </svg>
       </div>
-      <div class="foot-word">PINS<span class="a">'</span>N</div>
+      <div class="foot-word">PINSN</div>
     </div>
     <div class="foot-links">
-      <a href="#">Mentions légales</a>
-      <a href="#">RGPD</a>
+      <a href="#a-propos">Pierre-François Bert</a>
+      <a href="#confidentialite">Confidentialité</a>
       <a href="mailto:contact@pinsn.fr">contact@pinsn.fr</a>
     </div>
-    <div class="foot-copy">© 2025 PINSN · pinsn.fr · Révéler le travail bien fait</div>
+    <div class="foot-copy">© 2026 PINSN · pinsn.fr · Révéler le travail bien fait</div>
   </div>
 </footer>
-</div>
 
 <script>
-// Reveal scroll
+// Apparition progressive
 const rvs=document.querySelectorAll('.rv');
 const io=new IntersectionObserver((entries)=>{
-  entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('in'),i*45)});
+  entries.forEach((entry,index)=>{
+    if(entry.isIntersecting){
+      setTimeout(()=>entry.target.classList.add('in'),index*45);
+    }
+  });
 },{threshold:0.05});
-rvs.forEach(r=>io.observe(r));
+rvs.forEach(element=>io.observe(element));
 
-// Téléphone animation
+// Animation de l'aperçu PINSN
 const phone=document.querySelector('.phone');
 let fired=false;
 function triggerPhone(){
-  if(fired)return;fired=true;
-  ['n1','n2','n3'].forEach((id,i)=>setTimeout(()=>document.getElementById(id).classList.add('on'),600+i*440));
+  if(fired)return;
+  fired=true;
+  ['n1','n2','n3'].forEach((id,index)=>{
+    setTimeout(()=>document.getElementById(id)?.classList.add('on'),600+index*440);
+  });
   setTimeout(()=>{
-    document.getElementById('sc').classList.add('on');
+    document.getElementById('sc')?.classList.add('on');
     setTimeout(()=>{
-      document.getElementById('b1').style.width='68%';
-      document.getElementById('b2').style.width='84%';
-      document.getElementById('b3').style.width='91%';
+      const values=[['b1','72%'],['b2','84%'],['b3','92%']];
+      values.forEach(([id,width])=>{
+        const bar=document.getElementById(id);
+        if(bar)bar.style.width=width;
+      });
     },250);
   },2000);
 }
 if(phone){
-  const po=new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{if(e.isIntersecting){triggerPhone();po.disconnect()}});
+  const phoneObserver=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        triggerPhone();
+        phoneObserver.disconnect();
+      }
+    });
   },{threshold:0.15});
-  po.observe(phone);
+  phoneObserver.observe(phone);
   setTimeout(()=>{
-    const r=phone.getBoundingClientRect();
-    if(r.top<window.innerHeight)triggerPhone();
+    const rect=phone.getBoundingClientRect();
+    if(rect.top<window.innerHeight)triggerPhone();
   },500);
 }
 
 // FAQ
-function toggleFaq(el){el.classList.toggle('open')}
+function toggleFaq(element){
+  element.classList.toggle('open');
+}
 
-// Form
-async function handleSubmit(e){
-  e.preventDefault();
-  const btn=e.target.querySelector('.fsub');
-  btn.textContent='Envoi en cours…';btn.disabled=true;
-  await new Promise(r=>setTimeout(r,900));
-  document.getElementById('fw').style.display='none';
-  document.getElementById('fs').style.display='block';
+// Le formulaire ne simule aucun envoi : il prépare un véritable e-mail.
+function handleSubmit(event){
+  event.preventDefault();
+  const form=event.currentTarget;
+  const data=new FormData(form);
+  const company=String(data.get('company')||'Activité');
+  const subject=`Demande de Diagnostic PINSN — ${company}`;
+  const body=[
+    'Bonjour Pierre-François,',
+    '',
+    'Je souhaite recevoir un Diagnostic PINSN.',
+    '',
+    `Prénom : ${data.get('firstName')||''}`,
+    `Nom : ${data.get('lastName')||''}`,
+    `Email : ${data.get('email')||''}`,
+    `Activité / établissement : ${company}`,
+    `Métier : ${data.get('trade')||''}`,
+    `Ville ou zone : ${data.get('city')||''}`,
+    `Site ou fiche Google : ${data.get('website')||'Non indiqué'}`,
+    '',
+    'Bien cordialement,'
+  ].join('\n');
+
+  const success=document.getElementById('fs');
+  if(success)success.style.display='block';
+
+  window.location.href=`mailto:contact@pinsn.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 </script>
 </body>
